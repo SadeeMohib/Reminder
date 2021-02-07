@@ -39,6 +39,8 @@
         android:background="@color/cardview_light_background"
         android:hint="Email"
         android:textSize="24sp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,8 +55,10 @@
         android:layout_marginBottom="387dp"
         android:background="@color/cardview_light_background"
         android:hint="@string/prompt_password"
+        android:textColorHint="@color/black"
         android:inputType="textWebPassword"
         android:textSize="24sp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,6 +76,8 @@
         android:text="Register Here"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
+        android:onClick="CreateAcc"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.268"
@@ -87,6 +93,7 @@
         android:layout_marginEnd="102dp"
         android:layout_marginBottom="45dp"
         android:text="Login"
+        android:onClick="Login"
 
 
         app:layout_constraintBottom_toTopOf="@+id/reg_button"

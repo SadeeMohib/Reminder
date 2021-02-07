@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(MainActivity.this,DataBaseActivity.class);
                 startActivity(intent);
-                finish();}
-        },SPLASH_SCREEN);}
-
-
+                finish();
+            }
+        },SPLASH_SCREEN);
+    }
 
 }
