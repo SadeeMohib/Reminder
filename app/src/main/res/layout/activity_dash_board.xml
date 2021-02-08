@@ -5,5 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DashBoard">
-
+    <Button
+        android:id="@+id/log_out"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="LOG OUT"
+        android:onClick="LogOut"
+        tools:ignore="MissingConstraints">
+    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
