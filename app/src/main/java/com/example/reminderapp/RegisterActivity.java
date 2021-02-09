@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.reminderapp.UserAuth.User;
+import com.example.reminderapp.UserAuth.*;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,10 +25,10 @@ import org.intellij.lang.annotations.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
     TextView txt1;
-    EditText userName,email,age,gender,weight,password;
+    EditText userName,email,age,gender,Type,password;
     Button cancel,signUp;
 
-    String user_name,Email,Gender,Weight,Password,Age;
+    String user_name,Email,Gender,type1,Password,Age;
 
     private FirebaseAuth mAuth;
 
@@ -43,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         email=(EditText)findViewById(R.id.new_email);
         age=(EditText)findViewById(R.id.age_user);
         gender=(EditText)findViewById(R.id.gender);
-        weight=(EditText)findViewById(R.id.weight);
+        Type=(EditText)findViewById(R.id.type);
         password=(EditText)findViewById(R.id.new_password);
 
         cancel=(Button)findViewById(R.id.cancel_button) ;
@@ -56,7 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
         user_name=userName.getText().toString().trim();
         Email=email.getText().toString().trim();
         Gender=gender.getText().toString().trim();
-        Weight=weight.getText().toString().trim();
+        type1=Type.getText().toString().trim();
         Age=age.getText().toString().trim();
         Password=password.getText().toString();
 
@@ -112,10 +113,10 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
         */
-        if(Weight.isEmpty())
+        if(type1.isEmpty())
         {
-            weight.setError("Weight(Kg) Required");
-            weight.requestFocus();
+            Type.setError("User type Required");
+            Type.requestFocus();
             return;
         }
 
@@ -126,7 +127,8 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
                         {
-                            User user=new User(user_name,Email,Age,Weight,Gender,Password);
+                            User user=new User(user_name,Email,Age,type1,Gender,Password);
+                            HealthStatus healthStatus=new HealthStatus(0,0,0,0,0,0,0,0);
 
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
@@ -136,17 +138,36 @@ public class RegisterActivity extends AppCompatActivity {
                                     if(task.isSuccessful())
                                     {
                                         Toast.makeText(RegisterActivity.this,"Account Created!",Toast.LENGTH_LONG).show();
+
+                                        FirebaseDatabase.getInstance().getReference("HealthStatus")
+                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .setValue(healthStatus).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful())
+                                            {
+                                                Toast.makeText(RegisterActivity.this,"Health Status created with zero values",Toast.LENGTH_LONG).show();
+                                            }
+                                            else
+                                            {
+                                                Toast.makeText(RegisterActivity.this,"Failed to create Health Status",Toast.LENGTH_LONG).show();
+                                            }
+                                          }
+                                        });
+
                                     }
                                     else
                                     {
-                                        Toast.makeText(RegisterActivity.this,"Failed to create an account",Toast.LENGTH_LONG).show();
+                                        Toast.makeText(RegisterActivity.this, task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                                        Log.d("Error:",task.getException().getMessage());
                                     }
                                 }
                             });
+
                         }
                         else
                         {
-                            Toast.makeText(RegisterActivity.this,"Failed to create an account",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
                         }
                     }
                 });

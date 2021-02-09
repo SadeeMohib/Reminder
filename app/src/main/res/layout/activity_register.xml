@@ -73,11 +73,11 @@
             android:textSize="30dp">
         </EditText>
         <EditText
-            android:id="@+id/weight"
+            android:id="@+id/type"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
-            android:hint="Weight(Kg)"
+            android:hint="User type(Patient/Doctor)"
             android:background="@color/white"
             android:textColorHint="@color/black"
             android:textColor="@color/black"
