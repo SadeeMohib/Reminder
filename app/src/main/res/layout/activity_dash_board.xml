@@ -101,7 +101,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Notes"
+                    android:text="Medicine List"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -261,7 +261,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Appointment"
+                    android:text="Log out(Temp)"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>

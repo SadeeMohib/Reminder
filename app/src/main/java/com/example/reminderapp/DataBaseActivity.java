@@ -100,4 +100,10 @@ public class DataBaseActivity extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+
+    public void ForgotPass(View view) {
+        Intent intent=new Intent(this,ForgotPassWordActivity.class);
+        finish();
+        startActivity(intent);
+    }
 }
