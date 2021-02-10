@@ -16,12 +16,15 @@ public class DashBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash_board);
 
-        logout=(Button)findViewById(R.id.log_out);
+        //logout=(Button)findViewById(R.id.log_out);
     }
 
     public void LogOut(View view) {
         FirebaseAuth.getInstance().signOut();
         finish();
         startActivity(new Intent(DashBoard.this,DataBaseActivity.class));
+    }
+
+    public void medica(View view) {
     }
 }
