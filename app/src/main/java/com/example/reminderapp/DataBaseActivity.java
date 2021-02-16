@@ -1,14 +1,17 @@
 package com.example.reminderapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,10 +23,14 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import org.w3c.dom.Text;
 
+import java.util.Map;
+import java.util.Set;
+
 public class DataBaseActivity extends AppCompatActivity {
     TextView txt,Register;
     EditText user_email,user_password;
     Button LogIn;
+    CheckBox rememberMe;
 
     private FirebaseAuth mAuth;
 
@@ -37,6 +44,26 @@ public class DataBaseActivity extends AppCompatActivity {
 
         user_email=(EditText)findViewById(R.id.user_name);
         user_password=(EditText)findViewById(R.id.password_view);
+        rememberMe=(CheckBox)findViewById(R.id.remember_me);
+
+        SharedPreferences preferences=getSharedPreferences("userInfo",MODE_PRIVATE);
+        String checkBox=preferences.getString("Status","");
+        if(checkBox.equals("true"))
+        {
+            rememberMe.setChecked(true);
+            String EMail=preferences.getString("Email","");
+            String pass=preferences.getString("Password","");
+
+            user_email.setText(EMail);
+            user_password.setText(pass);
+        }
+        else if(checkBox.equals("false"))
+        {
+            rememberMe.setChecked(false);
+            user_email.setText("");
+            user_password.setText("");
+        }
+
 
         LogIn=(Button)findViewById(R.id.button_login);
 
@@ -105,5 +132,25 @@ public class DataBaseActivity extends AppCompatActivity {
         Intent intent=new Intent(this,ForgotPassWordActivity.class);
         finish();
         startActivity(intent);
+    }
+
+
+    public void RememberMe(View view) {
+        SharedPreferences preferences=getSharedPreferences("userInfo",MODE_PRIVATE);
+        SharedPreferences.Editor editor=preferences.edit();
+
+        if(rememberMe.isChecked()) {
+            editor.putString("Status","true");
+            editor.putString("Email",user_email.getText().toString().trim());
+            editor.putString("Password",user_password.getText().toString().trim());
+            editor.apply();
+        }
+        else if(!rememberMe.isChecked())
+        {
+            editor.putString("Status","false");
+            editor.putString("Email","");
+            editor.putString("Password","");
+            editor.apply();
+        }
     }
 }
