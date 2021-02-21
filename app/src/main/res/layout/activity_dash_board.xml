@@ -175,9 +175,11 @@
                 android:layout_gravity="center_vertical|center_horizontal">
 
                 <ImageView
+                    android:id="@+id/Appointment"
                     android:layout_width="140dp"
                     android:layout_height="130dp"
                     android:src="@drawable/appointment1"
+                    android:onClick="appoin"
 
                     />
                 <TextView
@@ -185,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:text="Appointment"
                     android:textStyle="bold"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

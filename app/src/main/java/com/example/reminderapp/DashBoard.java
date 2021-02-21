@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class DashBoard extends AppCompatActivity {
     Button logout;
     ImageView addMedica;
+    ImageView addAppoinment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class DashBoard extends AppCompatActivity {
 
         //logout=(Button)findViewById(R.id.log_out);
         addMedica=(ImageView)findViewById(R.id.medicine);
+        addAppoinment=(ImageView)findViewById(R.id.Appointment);
     }
 
 
@@ -38,5 +40,10 @@ public class DashBoard extends AppCompatActivity {
     public void Medic(View view) {
         finish();
         startActivity(new Intent(DashBoard.this,Medication.class));
+    }
+
+    public void appoin(View view) {
+        finish();
+        startActivity(new Intent(DashBoard.this,Appoinment.class));
     }
 }
