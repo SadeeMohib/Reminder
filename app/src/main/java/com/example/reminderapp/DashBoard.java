@@ -25,6 +25,7 @@ public class DashBoard extends AppCompatActivity {
 
 
 
+
     public void LogOut(View view) {
         FirebaseAuth.getInstance().signOut();
         finish();

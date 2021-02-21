@@ -121,6 +121,16 @@ public class DataBaseActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getCurrentUser()!=null)
+        {
+            finish();
+            startActivity(new Intent(this,DashBoard.class));
+        }
+    }
+
     public void CreateAcc(View view) {
         Intent intent=new Intent(this,RegisterActivity.class);
         finish();
