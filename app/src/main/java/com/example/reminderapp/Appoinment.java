@@ -10,7 +10,7 @@ public class Appoinment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_medication);
+        setContentView(R.layout.activity_appoinment);
     }
 
     public void Beck(View view) {
