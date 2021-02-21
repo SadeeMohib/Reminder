@@ -68,6 +68,7 @@ public class DataBaseActivity extends AppCompatActivity {
         LogIn=(Button)findViewById(R.id.button_login);
 
         mAuth=FirebaseAuth.getInstance();
+
     }
 
     public void Login(View view) {
