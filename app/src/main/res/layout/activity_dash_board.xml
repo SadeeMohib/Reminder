@@ -95,7 +95,7 @@
                     android:id="@+id/notes"
                     android:layout_width="140dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/note"
+                    android:src="@drawable/medicine1"
 
                     />
                 <TextView
@@ -177,7 +177,7 @@
                 <ImageView
                     android:layout_width="140dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/docappoint"
+                    android:src="@drawable/appointment1"
 
                     />
                 <TextView
@@ -216,13 +216,13 @@
                 <ImageView
                     android:layout_width="140dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/docappoint"
+                    android:src="@drawable/healthstatus"
 
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Appointment"
+                    android:text="Health Status"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -244,7 +244,7 @@
             app:cardElevation="8dp"
             >
             <LinearLayout
-                android:id="@+id/appointment_x"
+                android:id="@+id/logout"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:orientation="vertical"
@@ -254,14 +254,14 @@
                 <ImageView
                     android:layout_width="140dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/docappoint"
+                    android:src="@drawable/logout2"
                     android:onClick="LogOut"
 
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Log out(Temp)"
+                    android:text="Log out"
                     android:textStyle="bold"
                     android:textAlignment="center"/>
             </LinearLayout>

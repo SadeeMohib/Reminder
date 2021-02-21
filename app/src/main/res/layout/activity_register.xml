@@ -7,117 +7,128 @@
     android:orientation="vertical"
     android:background="@drawable/login_back"
     tools:context=".RegisterActivity">
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_width="375dp"
+        android:layout_height="684dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/reg"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:text="Register"
-            android:textAlignment="center"
-            android:textSize="50dp"
-            android:textColor="@color/white">
-        </TextView>
+            android:layout_height="75dp"
+            android:text="Create Your Account"
+            android:textColor="@color/white"
+            android:layout_marginLeft="5dp"
+            android:textSize="30sp"></TextView>
+
         <EditText
             android:id="@+id/user_name"
-            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:hint="User Name"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
             android:layout_marginRight="5dp"
-            android:textSize="30dp">
-        </EditText>
+            android:background="@color/white"
+            android:hint="User Name"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="18sp"></EditText>
+
         <EditText
             android:id="@+id/new_email"
-            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:hint="Email"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:textSize="30dp">
-        </EditText>
+            android:background="@color/white"
+            android:hint="Email"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="18sp"></EditText>
+
         <EditText
             android:id="@+id/age_user"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:hint="Age"
-            android:background="@color/white"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:textSize="30dp">
-        </EditText>
+            android:background="@color/white"
+            android:hint="Age"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="18sp"></EditText>
+
         <EditText
             android:id="@+id/gender"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:hint="Gender"
-            android:background="@color/white"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:textSize="30dp">
-        </EditText>
+            android:background="@color/white"
+            android:hint="Gender"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="18sp"></EditText>
+
         <EditText
             android:id="@+id/type"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:hint="User type(Patient/Doctor)"
-            android:background="@color/white"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:textSize="30dp">
-        </EditText>
+            android:background="@color/white"
+            android:hint="User type(Patient/Doctor)"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="18sp"></EditText>
+
         <EditText
             android:id="@+id/new_password"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="15dp"
-            android:hint="Password(>6)"
-            android:background="@color/white"
-            android:textColorHint="@color/black"
-            android:textColor="@color/black"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
-            android:textSize="30dp"
-            android:inputType="textPassword">
-        </EditText>
+            android:background="@color/white"
+            android:hint="Password(>6)"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="18sp"></EditText>
+
         <Button
             android:id="@+id/sign_up"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="60dp"
+            android:onClick="SignUp"
             android:padding="8dp"
-            android:layout_marginTop="10dp"
             android:text="Sign Up"
-            android:textSize="20dp"
-            android:onClick="SignUp">
-        </Button>
+            android:textSize="20dp"></Button>
+
         <Button
             android:id="@+id/cancel_button"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="205dp"
+            android:layout_marginTop="-53dp"
+            android:onClick="Cancel"
             android:padding="8dp"
-            android:layout_marginTop="10dp"
-            android:text="Cancel"
-            android:textSize="20dp"
-            android:onClick="Cancel">
-        </Button>
+            android:text="Back"
+            android:textSize="20dp"></Button>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
