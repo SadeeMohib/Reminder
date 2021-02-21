@@ -13,6 +13,7 @@
         <activity android:name=".DashBoard" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".DataBaseActivity" />
+        <activity android:name=".Medication" />
         <activity
             android:name=".ui.login.DataBaseActivity"
             android:label="@string/title_activity_login" />

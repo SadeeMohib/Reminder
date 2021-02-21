@@ -20,6 +20,7 @@ public class DashBoard extends AppCompatActivity {
         setContentView(R.layout.activity_dash_board);
 
         //logout=(Button)findViewById(R.id.log_out);
+        addMedica=(ImageView)findViewById(R.id.medicine);
     }
 
 
@@ -30,11 +31,12 @@ public class DashBoard extends AppCompatActivity {
         startActivity(new Intent(DashBoard.this,DataBaseActivity.class));
     }
 
-    public void medica(View view) {
-        startActivity(new Intent(DashBoard.this,Medication.class));
+    public void Add_medicine(View view) {
 
     }
 
-    public void Add_medicine(View view) {
+    public void Medic(View view) {
+        finish();
+        startActivity(new Intent(DashBoard.this,Medication.class));
     }
 }
