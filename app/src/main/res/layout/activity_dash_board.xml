@@ -137,7 +137,7 @@
                     android:layout_width="140dp"
                     android:layout_height="130dp"
                     android:src="@drawable/pill"
-                    android:onClick="Medic"
+                    android:onClick="addMedic"
                     />
                 <TextView
                     android:layout_width="wrap_content"

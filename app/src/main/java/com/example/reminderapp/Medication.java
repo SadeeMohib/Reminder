@@ -14,8 +14,8 @@ public class Medication extends AppCompatActivity {
         setContentView(R.layout.activity_medication);
     }
 
-    public void Beck(View view) {
+    public void back(View view) {
         finish();
-        startActivity(new Intent(Medication.this,DashBoard.class));
+        startActivity(new Intent(Medication.this,AddMedication.class));
     }
 }

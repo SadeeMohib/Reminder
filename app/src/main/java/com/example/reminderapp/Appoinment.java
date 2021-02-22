@@ -13,8 +13,8 @@ public class Appoinment extends AppCompatActivity {
         setContentView(R.layout.activity_appoinment);
     }
 
-    public void Beck(View view) {
+    public void back(View view) {
         finish();
-        startActivity(new Intent(Appoinment.this,DashBoard.class));
+        startActivity(new Intent(Appoinment.this,AddAppoinment.class));
     }
 }

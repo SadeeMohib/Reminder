@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-50dp"
             android:text="CANCEL"
-            android:onClick="Beck"
+            android:onClick="back"
             android:layout_marginLeft="275dp"/>
 
 

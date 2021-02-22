@@ -38,13 +38,13 @@ public class DashBoard extends AppCompatActivity {
 
     }
 
-    public void Medic(View view) {
+    public void addMedic(View view) {
         finish();
-        startActivity(new Intent(DashBoard.this,Medication.class));
+        startActivity(new Intent(DashBoard.this,AddMedication.class));
     }
 
     public void appoin(View view) {
         finish();
-        startActivity(new Intent(DashBoard.this,Appoinment.class));
+        startActivity(new Intent(DashBoard.this,AddAppoinment.class));
     }
 }
