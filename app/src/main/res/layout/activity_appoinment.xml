@@ -8,13 +8,13 @@
     android:layout_gravity="center"
     tools:context=".Appoinment">
 
+    <ScrollView
+        android:id="@+id/scrollable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
     <LinearLayout
-        android:layout_width="430dp"
-        android:layout_height="713dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,18 +25,18 @@
             android:id="@+id/reg1"
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="22dp"
             android:layout_marginRight="15dp"
             android:background="@color/purple_500"
             android:text="New Appoinment"
             android:textColor="@color/white"
-            android:textSize="30sp"></TextView>
+            android:textSize="30sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="22dp"
             android:text="Doctor's Name"
             android:textColor="#0123DF">
 
@@ -46,19 +46,19 @@
             android:id="@+id/doctorName"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="22dp"
             android:layout_marginTop="2dp"
             android:layout_marginRight="5dp"
             android:hint="Doctor's Name"
             android:textColor="@color/black"
             android:textColorHint="#92000000"
-            android:textSize="18sp"></EditText>
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="22dp"
             android:text="Description"
             android:textColor="#051C9E">
 
@@ -68,21 +68,26 @@
             android:id="@+id/doctorDescription"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="22dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="5dp"
             android:hint="Description e.g chamber's location"
             android:textColor="@color/black"
             android:textColorHint="#90000000"
-            android:textSize="18sp"></EditText>
+            android:textSize="18sp" />
+
+        <DatePicker
+            android:layout_width="wrap_content"
+            android:layout_height="350dp"
+            android:datePickerMode="spinner" />
 
         <TimePicker
             android:id="@+id/timePicker1"
-            android:layout_width="310dp"
-            android:layout_height="200dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:layout_marginLeft="70dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginRight="0dp"
             android:timePickerMode="spinner"/>
 
 
@@ -91,16 +96,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SET"
-            android:layout_marginLeft="85dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="60dp"/>
 
         <Button
             android:id="@+id/cancelButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="-50dp"
+            android:layout_marginTop="-48dp"
             android:text="CANCEL"
             android:onClick="back"
-            android:layout_marginLeft="275dp"/>
+            android:layout_marginLeft="245dp"/>
 
 
         <Button
@@ -111,6 +117,9 @@
             android:layout_marginTop="30dp"
             android:padding="8dp"
             android:text="Done"
-            android:textSize="20dp"></Button>
+            android:textSize="20dp" />
+
     </LinearLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
