@@ -47,4 +47,9 @@ public class DashBoard extends AppCompatActivity {
         finish();
         startActivity(new Intent(DashBoard.this,AddAppoinment.class));
     }
+
+    public void MyAcc(View view) {
+        finish();
+        startActivity(new Intent(DashBoard.this,MyAccount.class));
+    }
 }
