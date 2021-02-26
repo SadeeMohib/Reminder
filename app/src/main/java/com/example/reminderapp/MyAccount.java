@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,6 +30,13 @@ public class MyAccount extends AppCompatActivity {
     FirebaseAuth mAth;
     FirebaseUser fUser;
     DatabaseReference fref;
+
+    String user_name;
+    String user_age;
+    String user_type;
+    String user_email;
+    String user_gender;
+    String user_password;
 
     String uid;
     @Override
@@ -55,11 +66,12 @@ public class MyAccount extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String user_name=snapshot.child("Users").child(id).child("username").getValue(String.class);
-                String user_age=snapshot.child("Users").child(id).child("age").getValue(String.class);
-                String user_type=snapshot.child("Users").child(id).child("Usertype").getValue(String.class);
-                String user_email=snapshot.child("Users").child(id).child("email").getValue(String.class);
-                String user_gender=snapshot.child("Users").child(id).child("gender").getValue(String.class);
+                user_name=snapshot.child("Users").child(id).child("username").getValue(String.class);
+                user_age=snapshot.child("Users").child(id).child("age").getValue(String.class);
+                user_type=snapshot.child("Users").child(id).child("Usertype").getValue(String.class);
+                user_email=snapshot.child("Users").child(id).child("email").getValue(String.class);
+                user_gender=snapshot.child("Users").child(id).child("gender").getValue(String.class);
+                user_password=snapshot.child("Users").child(id).child("password").getValue(String.class);
 
                 name.setText(user_name);
                 age.setText(user_age);
@@ -77,9 +89,37 @@ public class MyAccount extends AppCompatActivity {
     }
 
     public void Update(View view) {
+            Intent updateIntent=new Intent(MyAccount.this,UpdateAccActivity.class);
+            updateIntent.putExtra("name",user_name);
+            updateIntent.putExtra("age",user_age);
+            updateIntent.putExtra("email",user_email);
+            updateIntent.putExtra("gender",user_gender);
+            updateIntent.putExtra("pas",user_password);
+            finish();
+            startActivity(updateIntent);
     }
 
     public void Delete(View view) {
+        DatabaseReference UserRef=FirebaseDatabase.getInstance().getReference("Users").child(uid);
+        DatabaseReference HealthRef=FirebaseDatabase.getInstance().getReference("HealthStatus").child(uid);
+
+        UserRef.removeValue();
+        HealthRef.removeValue();
+
+        fUser.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Toast.makeText(MyAccount.this,"The account has been deleted.",Toast.LENGTH_LONG).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(MyAccount.this,e.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
+
+        finish();
+        startActivity(new Intent(MyAccount.this,DataBaseActivity.class));
     }
 
     public void GoBack(View view) {
