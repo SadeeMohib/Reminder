@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HealthStatus">
+
+       <TextView
+           android:id="@+id/Medexox"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="55sp"
+           android:layout_marginLeft="15dp"
+           android:text="Health :"
+           android:textColor="#0023E6"
+           android:textSize="30sp"></TextView>
+
+       <LinearLayout
+
+           android:layout_width="366dp"
+           android:layout_height="153dp"
+           android:layout_marginLeft="15dp"
+           android:layout_marginTop="125dp">
+
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:fontFamily="sans-serif-medium"
+                  android:text="Blood Pressusre :"
+                  android:textSize="30sp" />
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="61dp"
+                  android:layout_gravity="center"
+                  android:layout_marginLeft="-120dp"
+                  android:text="0mmhg"
+                  android:textSize="36dp"
+
+                  />
+       </LinearLayout>
+
+
+
+       <GridLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/Medexox"
+           android:layout_marginTop="200dp"
+           android:columnCount="2"
+           android:rowCount="3"
+           >
+
+
+       <androidx.cardview.widget.CardView
+
+
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_row="0"
+           android:layout_rowWeight="1"
+           android:layout_column="0"
+           android:layout_columnWeight="1"
+           android:layout_gravity="fill"
+           android:layout_margin="8dp"
+           android:layout_marginLeft="20dp"
+           android:background="@drawable/back_"
+           app:cardCornerRadius="8dp"
+           app:cardElevation="8dp">
+
+              <LinearLayout
+
+                  android:layout_width="150dp"
+                  android:layout_height="150dp"
+                  android:layout_gravity="center_vertical|center_horizontal"
+                  android:orientation="vertical">
+
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginLeft="10dp"
+                         android:layout_marginTop="10dp"
+                         android:fontFamily="sans-serif-medium"
+                         android:textSize="30sp"
+                         android:text="BMI :"
+                         />
+
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:text="0"
+                         android:textAlignment="center"
+                         android:textSize="36dp" />
+              </LinearLayout>
+       </androidx.cardview.widget.CardView>
+
+
+       <androidx.cardview.widget.CardView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_row="0"
+           android:layout_rowWeight="1"
+           android:layout_column="1"
+           android:layout_columnWeight="1"
+           android:layout_gravity="fill"
+           android:layout_margin="8dp"
+           android:layout_marginLeft="50dp"
+           app:cardCornerRadius="8dp"
+           app:cardElevation="8dp">
+
+              <LinearLayout
+
+                  android:layout_width="150dp"
+                  android:layout_height="150dp"
+                  android:layout_gravity="center_vertical|center_horizontal"
+                  android:orientation="vertical">
+
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginLeft="10dp"
+                         android:layout_marginTop="10dp"
+                         android:fontFamily="sans-serif-medium"
+                         android:textSize="30sp"
+                         android:text="BMR :"
+                          />
+                     <TextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:text="0"
+                         android:textAlignment="center"
+                         android:textSize="36dp" />
+              </LinearLayout>
+       </androidx.cardview.widget.CardView>
+
+
+
+
+              <androidx.cardview.widget.CardView
+
+
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_row="1"
+                  android:layout_rowWeight="1"
+                  android:layout_column="0"
+                  android:layout_columnWeight="1"
+                  android:layout_gravity="fill"
+                  android:layout_margin="8dp"
+                  android:layout_marginLeft="20dp"
+                  android:background="@drawable/back_"
+                  app:cardCornerRadius="8dp"
+                  app:cardElevation="8dp">
+
+                     <LinearLayout
+
+                         android:layout_width="150dp"
+                         android:layout_height="150dp"
+                         android:layout_gravity="center_vertical|center_horizontal"
+                         android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textSize="30sp"
+                                android:text="Weight :"
+                                 />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0kg"
+                                android:textAlignment="center"
+                                android:textSize="36dp" />
+                     </LinearLayout>
+              </androidx.cardview.widget.CardView>
+
+
+              <androidx.cardview.widget.CardView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_row="1"
+                  android:layout_rowWeight="1"
+                  android:layout_column="1"
+                  android:layout_columnWeight="1"
+                  android:layout_gravity="fill"
+                  android:layout_margin="8dp"
+                  android:layout_marginLeft="50dp"
+                  app:cardCornerRadius="8dp"
+                  app:cardElevation="8dp">
+
+                     <LinearLayout
+
+                         android:layout_width="150dp"
+                         android:layout_height="150dp"
+                         android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textSize="30sp"
+                                android:text="Diabetes"
+                                 />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textAlignment="center"
+                                android:textSize="36dp" />
+                     </LinearLayout>
+              </androidx.cardview.widget.CardView>
+
+       </GridLayout>
+
+       <Button
+           android:id="@+id/button"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="650dp"
+           android:shadowColor="#FFFFFF"
+           android:text="Update"
+           android:textColor="#FFFFFF" />
+
+</RelativeLayout>

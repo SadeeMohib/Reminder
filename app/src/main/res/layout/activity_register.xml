@@ -25,9 +25,10 @@
             android:id="@+id/reg"
             android:layout_width="match_parent"
             android:layout_height="75dp"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="sans-serif-light"
             android:text="Create Your Account"
             android:textColor="@color/white"
-            android:layout_marginLeft="5dp"
             android:textSize="30sp"></TextView>
 
         <EditText
