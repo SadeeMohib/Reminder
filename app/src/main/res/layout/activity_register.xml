@@ -119,6 +119,8 @@
             android:onClick="SignUp"
             android:padding="8dp"
             android:text="Sign Up"
+            android:textColor="#000000"
+            android:backgroundTint="#37FDFC"
             android:textSize="20dp"></Button>
 
         <Button
@@ -126,10 +128,12 @@
             android:layout_width="155dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="205dp"
-            android:layout_marginTop="-53dp"
+            android:layout_marginTop="-55dp"
             android:onClick="Cancel"
             android:padding="8dp"
             android:text="Back"
+            android:textColor="#000000"
+            android:backgroundTint="#37FDFC"
             android:textSize="20dp"></Button>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

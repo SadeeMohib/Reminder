@@ -113,6 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Update Account"
+        android:backgroundTint="#36648B"
         android:layout_marginTop="20dp"
         android:onClick="Update"
         />
@@ -121,6 +122,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Delete Account"
+        android:backgroundTint="#36648B"
         android:layout_marginTop="20dp"
         android:onClick="Delete"
         />
@@ -130,6 +132,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="Back"
+        android:backgroundTint="#36648B"
         android:layout_marginTop="20dp"
         android:onClick="GoBack"
         />

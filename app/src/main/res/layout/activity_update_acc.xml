@@ -19,7 +19,7 @@
         android:textSize="40sp" />
 
     <ImageView
-        android:layout_width="230dp"
+        android:layout_width="212dp"
         android:layout_height="150dp"
         android:layout_marginLeft="100dp"
         android:src="@drawable/an_profile"
@@ -35,11 +35,12 @@
 
         <EditText
             android:id="@+id/name"
-            android:layout_width="323dp"
+            android:layout_width="305dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="5dp"
             android:textColor="@color/white"
-            android:textSize="30sp"
-            android:layout_marginLeft="55dp"/>
+            android:textSize="30sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,7 +78,7 @@
 
         <EditText
             android:id="@+id/age"
-            android:layout_width="113dp"
+            android:layout_width="82dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="24sp" />
@@ -86,8 +87,8 @@
     <LinearLayout
         android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="155dp"
-        android:layout_marginTop="-60dp"
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="-54dp"
         android:orientation="horizontal">
 
         <TextView
@@ -101,11 +102,12 @@
 
         <EditText
             android:id="@+id/gender"
-            android:layout_width="152dp"
+            android:layout_width="156dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="24sp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -121,7 +123,7 @@
 
         <EditText
             android:id="@+id/pass"
-            android:layout_width="235dp"
+            android:layout_width="241dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="24sp" />
@@ -152,6 +154,7 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="Confirm"
+        android:backgroundTint="#00008B"
         android:layout_marginTop="20dp"
         android:onClick="Updater"
         android:layout_marginLeft="40dp"
@@ -162,6 +165,7 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="Back"
+        android:backgroundTint="#00008B"
         android:layout_marginTop="-50dp"
         android:layout_marginLeft="280dp"
         android:onClick="Back"
