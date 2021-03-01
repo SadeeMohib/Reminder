@@ -128,7 +128,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if(task.isSuccessful())
                         {
                             User user=new User(user_name,Email,Age,type1,Gender,Password);
-                            HealthStatus healthStatus=new HealthStatus(0,0,0,0,0,0,0,0);
+                            Health healthStatus=new Health(0,0,0,0,0,0,0,0);
 
                             FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())

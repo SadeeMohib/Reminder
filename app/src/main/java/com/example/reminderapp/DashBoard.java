@@ -52,4 +52,9 @@ public class DashBoard extends AppCompatActivity {
         finish();
         startActivity(new Intent(DashBoard.this,MyAccount.class));
     }
+
+    public void MedList(View view) {
+        finish();
+        startActivity(new Intent(DashBoard.this,MedicineList.class));
+    }
 }

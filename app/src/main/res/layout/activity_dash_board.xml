@@ -98,7 +98,7 @@
                     android:layout_width="140dp"
                     android:layout_height="130dp"
                     android:src="@drawable/medicine1"
-
+                    android:onClick="MedList"
                     />
 
                 <TextView

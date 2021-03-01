@@ -18,7 +18,7 @@ public class Alarm extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        int notiId = intent.getIntExtra("notiId", 0);
+       /** int notiId = intent.getIntExtra("notiId", 0);
         String message = intent.getStringExtra("message");
         Intent mainIntent = new Intent(context, MedicineReminder.class);
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, mainIntent, 0);
@@ -36,7 +36,7 @@ public class Alarm extends BroadcastReceiver {
                 .setContentIntent(contentIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true);
-        notificationManager.notify(notiId, builder.build());
+        notificationManager.notify(notiId, builder.build()); */
 
     }
 }
