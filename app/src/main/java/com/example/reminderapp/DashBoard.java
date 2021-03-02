@@ -14,6 +14,7 @@ public class DashBoard extends AppCompatActivity {
     Button logout;
     ImageView addMedica;
     ImageView addAppoinment;
+    ImageView Hstats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,7 @@ public class DashBoard extends AppCompatActivity {
         //logout=(Button)findViewById(R.id.log_out);
         addMedica=(ImageView)findViewById(R.id.medicine);
         addAppoinment=(ImageView)findViewById(R.id.Appointment);
+        Hstats=(ImageView)findViewById(R.id.helthstats);
     }
 
 
@@ -56,5 +58,10 @@ public class DashBoard extends AppCompatActivity {
     public void MedList(View view) {
         finish();
         startActivity(new Intent(DashBoard.this,MedicineList.class));
+    }
+
+    public void GoToStats(View view) {
+        finish();
+        startActivity(new Intent(DashBoard.this,HealthStatus.class));
     }
 }

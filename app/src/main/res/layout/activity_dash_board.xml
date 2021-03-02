@@ -211,9 +211,11 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/helthstats"
                     android:layout_width="140dp"
                     android:layout_height="130dp"
                     android:src="@drawable/healthstatus"
+                    android:onClick="GoToStats"
 
                     />
 
