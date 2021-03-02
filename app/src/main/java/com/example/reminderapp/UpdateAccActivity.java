@@ -119,20 +119,27 @@ public class UpdateAccActivity extends AppCompatActivity {
 
         user1=new User(newname,Email,newAge,"Patient",gen,newpas);
         //updating authentication information for login
-        AuthCredential credential= EmailAuthProvider.getCredential(Email,newpas);
+        AuthCredential credential= EmailAuthProvider.getCredential(Email,oldpas);
         user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful())
                 {
-                    Toast.makeText(UpdateAccActivity.this,"User Credentials updated",Toast.LENGTH_LONG).show();
-                    FirebaseDatabase.getInstance().getReference("Users")
-                            .child(user.getUid()).setValue(user1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    user.updatePassword(newpas).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())
                             {
-                                Toast.makeText(UpdateAccActivity.this,"User updated",Toast.LENGTH_LONG).show();
+                                FirebaseDatabase.getInstance().getReference("Users")
+                                        .child(user.getUid()).setValue(user1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful())
+                                        {
+                                            Toast.makeText(UpdateAccActivity.this,"Credentials Updated!",Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
                             }
                             else
                             {
@@ -140,6 +147,7 @@ public class UpdateAccActivity extends AppCompatActivity {
                             }
                         }
                     });
+
                 }
                 else
                 {
