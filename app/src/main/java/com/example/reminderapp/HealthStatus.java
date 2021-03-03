@@ -30,6 +30,8 @@ public class HealthStatus extends AppCompatActivity {
     TextView bmi,bmr,bloodPress,weight,diabetes;
     Health health;
 
+    double bmival,bmrval,heightval,weightval,systol,diastol,puls,diab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,10 +65,21 @@ public class HealthStatus extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                String bmi1=String.valueOf(snapshot.child("HealthStatus").child(id).child("BMI").getValue(Double.class));
-                String bmr1=String.valueOf(snapshot.child("HealthStatus").child(id).child("BMR").getValue(Double.class));
-                String weight1=String.valueOf(snapshot.child("HealthStatus").child(id).child("weight").getValue(Double.class));
-                String dia1=String.valueOf(snapshot.child("HealthStatus").child(id).child("diabetes").getValue(Double.class));
+                bmival=snapshot.child("HealthStatus").child(id).child("BMI").getValue(Double.class);
+                bmrval=snapshot.child("HealthStatus").child(id).child("BMR").getValue(Double.class);
+                weightval=snapshot.child("HealthStatus").child(id).child("weight").getValue(Double.class);
+                diab=snapshot.child("HealthStatus").child(id).child("diabetes").getValue(Double.class);
+                heightval=snapshot.child("HealthStatus").child(id).child("hight").getValue(Double.class);
+                systol=snapshot.child("HealthStatus").child(id).child("bloodSystol").getValue(Double.class);
+                diastol=snapshot.child("HealthStatus").child(id).child("bloodDiastol").getValue(Double.class);
+                puls=snapshot.child("HealthStatus").child(id).child("pulse").getValue(Double.class);
+
+                String bmi1=String.valueOf(bmival);
+                String bmr1=String.valueOf(bmrval);
+                String weight1=String.valueOf(weightval);
+                String dia1=String.valueOf(diab);
+
+
 
                 if(bmi1.equals("0.0") && bmr1.equals("0.0") && weight1.equals("0.0") && dia1.equals("0.0"))
                 {
@@ -77,6 +90,40 @@ public class HealthStatus extends AppCompatActivity {
 
                 }
 
+                if(bmrval>0.0 && bmrval<=18.5)
+                {
+                    //underweight
+                    BmrCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                }
+                if(bmrval>18.5 && bmrval<=24.5)
+                {
+                    //normal weight
+                    BmrCard.setCardBackgroundColor(Color.parseColor("#00FF7F"));
+                }
+                if(bmrval>24.5 && bmrval<=29.9)
+                {
+                    //over weight
+                    BmrCard.setCardBackgroundColor(Color.parseColor("#ffff00"));
+                }
+                if(bmrval>29.9)
+                {
+                    //obese
+                    BmrCard.setCardBackgroundColor(Color.parseColor("#FF4500"));
+                }
+
+                if(diab<=4.0)
+                {
+                    DiabetesCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                }
+
+                if(diab>4.0 && diab<=6.0)
+                {
+                    DiabetesCard.setCardBackgroundColor(Color.parseColor("#00FF7F"));
+                }
+                if(diab>6.0)
+                {
+                    DiabetesCard.setCardBackgroundColor(Color.parseColor("#FF4500"));
+                }
 
                 bmi.setText(bmi1);
                 bmr.setText(bmr1);
