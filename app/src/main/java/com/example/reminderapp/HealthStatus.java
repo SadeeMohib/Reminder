@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -66,6 +67,16 @@ public class HealthStatus extends AppCompatActivity {
                 String bmr1=String.valueOf(snapshot.child("HealthStatus").child(id).child("BMR").getValue(Double.class));
                 String weight1=String.valueOf(snapshot.child("HealthStatus").child(id).child("weight").getValue(Double.class));
                 String dia1=String.valueOf(snapshot.child("HealthStatus").child(id).child("diabetes").getValue(Double.class));
+
+                if(bmi1.equals("0.0") && bmr1.equals("0.0") && weight1.equals("0.0") && dia1.equals("0.0"))
+                {
+                    BmiCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    BmrCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    WeightCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    DiabetesCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+
+                }
+
 
                 bmi.setText(bmi1);
                 bmr.setText(bmr1);
