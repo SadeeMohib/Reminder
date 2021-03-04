@@ -140,7 +140,7 @@ public class HealthStatus extends AppCompatActivity {
 
     public void back(View view) {
         finish();
-        startActivity(new Intent(HealthStatus.this,DashBoard.class));
+        startActivity(new Intent(HealthStatus.this,HealthStatusUpdateActivity.class));
 
     }
 }
