@@ -17,12 +17,11 @@
            android:textSize="30sp"></TextView>
 
        <LinearLayout
-
+           android:id="@+id/bpPart"
            android:layout_width="366dp"
            android:layout_height="153dp"
            android:layout_marginLeft="15dp"
            android:layout_marginTop="125dp">
-
 
               <TextView
                   android:layout_width="wrap_content"
@@ -34,7 +33,7 @@
               <TextView
                   android:id="@+id/bloodPressur"
                   android:layout_width="wrap_content"
-                  android:layout_height="61dp"
+                  android:layout_height="73dp"
                   android:layout_gravity="center"
                   android:layout_marginLeft="-120dp"
                   android:text="0mmhg"

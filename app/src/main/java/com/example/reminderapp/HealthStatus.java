@@ -28,6 +28,7 @@ public class HealthStatus extends AppCompatActivity {
 
     CardView BloodPressure,BmiCard,BmrCard,WeightCard,DiabetesCard;
     TextView bmi,bmr,bloodPress,weight,diabetes;
+    String bloodP;
     Health health;
 
     double bmival,bmrval,heightval,weightval,systol,diastol,puls,diab;
@@ -93,25 +94,25 @@ public class HealthStatus extends AppCompatActivity {
 
                 }
 
-                if(bmrval>0.0 && bmrval<=18.5)
+                if(bmival>0.0 && bmival<=18.5)
                 {
                     //underweight
-                    BmrCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    BmiCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
                 }
-                if(bmrval>18.5 && bmrval<=24.5)
+                if(bmival>18.5 && bmival<=24.5)
                 {
                     //normal weight
-                    BmrCard.setCardBackgroundColor(Color.parseColor("#00FF7F"));
+                    BmiCard.setCardBackgroundColor(Color.parseColor("#00FF7F"));
                 }
-                if(bmrval>24.5 && bmrval<=29.9)
+                if(bmival>24.5 && bmival<=29.9)
                 {
                     //over weight
-                    BmrCard.setCardBackgroundColor(Color.parseColor("#ffff00"));
+                    BmiCard.setCardBackgroundColor(Color.parseColor("#ffff00"));
                 }
-                if(bmrval>29.9)
+                if(bmival>29.9)
                 {
                     //obese
-                    BmrCard.setCardBackgroundColor(Color.parseColor("#FF4500"));
+                    BmiCard.setCardBackgroundColor(Color.parseColor("#FF4500"));
                 }
 
                 if(diab<=4.0)
@@ -127,11 +128,30 @@ public class HealthStatus extends AppCompatActivity {
                 {
                     DiabetesCard.setCardBackgroundColor(Color.parseColor("#FF4500"));
                 }
+                if(systol<120.0)
+                {
+                    bloodPress.setBackgroundColor(Color.parseColor("#00FF7F"));
+                }
 
+                if(systol>=120.0 && systol<=129.0)
+                {
+                    bloodPress.setBackgroundColor(Color.parseColor("#ffff00"));
+                }
+                if(systol>=130.0 && systol<=139.0)
+                {
+                    bloodPress.setBackgroundColor(Color.parseColor("#FF9903"));
+                }
+                if(systol>=140.0)
+                {
+                    bloodPress.setBackgroundColor(Color.parseColor("#FF4500"));
+                }
+
+                bloodP=String.valueOf(systol)+"/"+String.valueOf(diastol)+"(Sys/Dia)";
                 bmi.setText(bmi1);
                 bmr.setText(bmr1);
                 weight.setText(weight1);
                 diabetes.setText(dia1);
+                bloodPress.setText(bloodP);
             }
 
             @Override
