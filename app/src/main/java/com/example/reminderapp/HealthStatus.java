@@ -32,6 +32,7 @@ public class HealthStatus extends AppCompatActivity {
 
     double bmival,bmrval,heightval,weightval,systol,diastol,puls,diab;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +74,7 @@ public class HealthStatus extends AppCompatActivity {
                 systol=snapshot.child("HealthStatus").child(id).child("bloodSystol").getValue(Double.class);
                 diastol=snapshot.child("HealthStatus").child(id).child("bloodDiastol").getValue(Double.class);
                 puls=snapshot.child("HealthStatus").child(id).child("pulse").getValue(Double.class);
+
 
                 String bmi1=String.valueOf(bmival);
                 String bmr1=String.valueOf(bmrval);
