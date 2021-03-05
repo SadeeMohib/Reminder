@@ -24,7 +24,7 @@ public class HealthStatus extends AppCompatActivity {
     FirebaseUser user;
     DatabaseReference databaseReference;
     String uid;
-
+    String age,gender;
 
     CardView BloodPressure,BmiCard,BmrCard,WeightCard,DiabetesCard;
     TextView bmi,bmr,bloodPress,weight,diabetes;
@@ -74,7 +74,8 @@ public class HealthStatus extends AppCompatActivity {
                 systol=snapshot.child("HealthStatus").child(id).child("bloodSystol").getValue(Double.class);
                 diastol=snapshot.child("HealthStatus").child(id).child("bloodDiastol").getValue(Double.class);
                 puls=snapshot.child("HealthStatus").child(id).child("pulse").getValue(Double.class);
-
+                age=snapshot.child("Users").child(id).child("age").getValue(String.class);
+                gender=snapshot.child("Users").child(id).child("gender").getValue(String.class);
 
                 String bmi1=String.valueOf(bmival);
                 String bmr1=String.valueOf(bmrval);
@@ -141,8 +142,11 @@ public class HealthStatus extends AppCompatActivity {
     }
 
     public void back(View view) {
+        Intent intent=new Intent(HealthStatus.this,HealthStatusUpdateActivity.class);
+        intent.putExtra("Age",age);
+        intent.putExtra("sex",gender);
         finish();
-        startActivity(new Intent(HealthStatus.this,HealthStatusUpdateActivity.class));
+        startActivity(intent);
 
     }
 }
