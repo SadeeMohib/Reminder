@@ -10,16 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:background="@color/purple_500"
-        android:text="New Appoinment"
+        android:text="Appoinment"
         android:textAlignment="center"
         android:backgroundTint="#1C86EE"
         android:textColor="@color/white"
         android:textSize="30sp" />
-    <ListView
-        android:id="@+id/list"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/head1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/activity_remind_appoinment_format"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
