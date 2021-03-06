@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MedicineList extends AppCompatActivity {
     Button save;
-    ArrayList<String> medicineName = new ArrayList<String>();
+    ArrayList<String> medicineName = new ArrayList<>();
     EditText txt;
     ListView show;
 
@@ -36,12 +36,12 @@ public class MedicineList extends AppCompatActivity {
                 if (medicineName.contains(getInput)) {
                     Toast.makeText(getBaseContext(), "Item exits", Toast.LENGTH_LONG).show();
                 }
-                else if (getInput == null || getInput.trim().equals("")) {
+                else if (getInput == null || getInput.trim().equals(" ")) {
                     Toast.makeText(getBaseContext(), "Input field is empty", Toast.LENGTH_LONG).show();
                 }
                 else {
                     medicineName.add(getInput);
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(MedicineList.this, android.R.layout.simple_list_item_1, medicineName);
+                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(MedicineList.this, android.R.layout.simple_list_item_1, medicineName);
                     show.setAdapter(arrayAdapter);
                     ((EditText) findViewById(R.id.listOfMedicine)).setText(" ");
                 }

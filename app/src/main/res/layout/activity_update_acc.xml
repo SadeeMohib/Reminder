@@ -21,7 +21,7 @@
     <ImageView
         android:layout_width="212dp"
         android:layout_height="150dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="110dp"
         android:src="@drawable/an_profile"
 
         />
