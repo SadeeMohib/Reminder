@@ -40,13 +40,17 @@
             android:layout_marginLeft="55dp"
             android:layout_marginTop="5dp"
             android:textColor="@color/white"
+            android:backgroundTint="@color/cardview_light_background"
+            android:textAlignment="center"
             android:textSize="30sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="45dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="55dp">
         <TextView
             android:id="@+id/mail"
             android:layout_width="wrap_content"
@@ -67,6 +71,7 @@
         android:layout_width="166dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:layout_marginLeft="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -89,6 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="165dp"
         android:layout_marginTop="-54dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -102,7 +108,7 @@
 
         <EditText
             android:id="@+id/gender"
-            android:layout_width="156dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textSize="24sp" />
@@ -112,6 +118,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="25dp">
         <TextView
             android:layout_width="wrap_content"
@@ -132,6 +140,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="25dp">
         <TextView
             android:layout_width="wrap_content"

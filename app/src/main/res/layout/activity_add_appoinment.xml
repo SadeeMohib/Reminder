@@ -39,7 +39,7 @@
             android:layout_marginLeft="13dp"
             android:backgroundTint="@color/white"
             android:onClick="back"
-            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
             tools:ignore="MissingClass" />
 
     </RelativeLayout>

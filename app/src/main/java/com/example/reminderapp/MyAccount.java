@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,13 +26,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.example.reminderapp.UserAuth.User;
 
 public class MyAccount extends AppCompatActivity {
-    TextView name,email,age,gender,utype;
-    Button update,del,Beck;
+    TextView name,email,age,gender,utype,nameShow;
+    ImageView Beck;
+    Button update,del;
     FirebaseAuth mAth;
     FirebaseUser fUser;
     DatabaseReference fref;
 
     String user_name;
+    String user_name_show;
     String user_age;
     String user_type;
     String user_email;
@@ -50,6 +53,7 @@ public class MyAccount extends AppCompatActivity {
 
 
         name=(TextView)findViewById(R.id.name);
+        nameShow=(TextView)findViewById(R.id.name1);
         email=(TextView)findViewById(R.id.Email);
         age=(TextView)findViewById(R.id.age);
         gender=(TextView)findViewById(R.id.gender);
@@ -57,7 +61,6 @@ public class MyAccount extends AppCompatActivity {
 
         update=(Button)findViewById(R.id.updateAcc);
         del=(Button)findViewById(R.id.delAcc);
-        Beck=(Button)findViewById(R.id.back);
 
         getData(fUser,uid,fref);
     }
@@ -67,6 +70,7 @@ public class MyAccount extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 user_name=snapshot.child("Users").child(id).child("username").getValue(String.class);
+                user_name_show=snapshot.child("Users").child(id).child("username").getValue(String.class);
                 user_age=snapshot.child("Users").child(id).child("age").getValue(String.class);
                 user_type=snapshot.child("Users").child(id).child("Usertype").getValue(String.class);
                 user_email=snapshot.child("Users").child(id).child("email").getValue(String.class);
@@ -74,6 +78,7 @@ public class MyAccount extends AppCompatActivity {
                 user_password=snapshot.child("Users").child(id).child("password").getValue(String.class);
 
                 name.setText(user_name);
+                nameShow.setText(user_name_show);
                 age.setText(user_age);
                 utype.setText(user_type);
                 email.setText(user_email);

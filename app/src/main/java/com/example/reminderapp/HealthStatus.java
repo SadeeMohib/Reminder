@@ -7,7 +7,9 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.health.HealthStats;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.reminderapp.UserAuth.Health;
@@ -28,6 +30,7 @@ public class HealthStatus extends AppCompatActivity {
 
     CardView BloodPressure,BmiCard,BmrCard,WeightCard,DiabetesCard;
     TextView bmi,bmr,bloodPress,weight,diabetes;
+    ImageView back;
     String bloodP;
     Health health;
 
@@ -54,6 +57,8 @@ public class HealthStatus extends AppCompatActivity {
         weight=(TextView)findViewById(R.id.weight);
         diabetes=(TextView)findViewById(R.id.diabetes);
         bloodPress=(TextView)findViewById(R.id.bloodPressur);
+
+        back=(ImageView)findViewById(R.id.back_) ;
 
         getData(databaseReference,uid);
 
@@ -160,7 +165,12 @@ public class HealthStatus extends AppCompatActivity {
             }
         });
     }
+    public void backToDash(View view) {
+        Intent intent=new Intent(HealthStatus.this,DashBoard.class);
+        finish();
+        startActivity(intent);
 
+    }
     public void back(View view) {
         Intent intent=new Intent(HealthStatus.this,HealthStatusUpdateActivity.class);
         intent.putExtra("Age",age);

@@ -4,18 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back_health"
     tools:context=".HealthStatus">
-
-       <TextView
-           android:id="@+id/Medexox"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_marginTop="55sp"
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+       <ImageView
+           android:id="@+id/back_"
+           android:layout_width="40dp"
+           android:layout_marginTop="10dp"
+           android:layout_height="40dp"
            android:layout_marginLeft="15dp"
-           android:text="Health :"
-           android:textColor="#0023E6"
-           android:textSize="30sp"></TextView>
+           android:src="@drawable/ic_baseline_arrow_back_ios_24"
+           android:onClick="backToDash"/>
 
+
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginLeft="15dp"
+                  android:layout_marginTop="10dp"
+                  android:text="Health Status:"
+                  android:textColor="#FFFFFF"
+                  android:textSize="30sp" />
+
+              <ImageView
+                  android:layout_width="40dp"
+                  android:layout_height="51dp"
+                  android:layout_marginLeft="80dp"
+                  android:layout_marginRight="15dp"
+                  android:src="@drawable/ic_outline_medical_services_24" />
+       </LinearLayout>
        <LinearLayout
            android:id="@+id/bpPart"
            android:layout_width="366dp"
@@ -27,17 +46,19 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:fontFamily="sans-serif-medium"
+                  android:background="@drawable/back_"
+                  android:layout_marginLeft="10dp"
                   android:text="Blood Pressusre :"
                   android:textSize="30sp" />
 
               <TextView
                   android:id="@+id/bloodPressur"
                   android:layout_width="wrap_content"
-                  android:layout_height="73dp"
+                  android:layout_height="wrap_content"
                   android:layout_gravity="center"
-                  android:layout_marginLeft="-120dp"
+                  android:layout_marginLeft="-300dp"
                   android:text="0mmhg"
-                  android:textSize="36dp"
+                  android:textSize="32dp"
 
                   />
        </LinearLayout>
@@ -48,7 +69,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_below="@+id/Medexox"
-           android:layout_marginTop="200dp"
+           android:layout_marginTop="300dp"
            android:columnCount="2"
            android:rowCount="3"
            >
@@ -235,11 +256,12 @@
            android:id="@+id/Updatebutton"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:layout_marginTop="650dp"
+           android:layout_marginTop="660dp"
+           android:backgroundTint="#011585"
+           android:onClick="back"
+
            android:shadowColor="#FFFFFF"
            android:text="Update"
-           android:backgroundTint="#162252"
-           android:textColor="#FFFFFF"
-           android:onClick="back"/>
+           android:textColor="#FFFFFF" />
 
 </RelativeLayout>
