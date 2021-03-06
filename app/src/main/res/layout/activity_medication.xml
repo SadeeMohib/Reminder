@@ -7,7 +7,9 @@
     android:orientation="vertical"
     android:layout_gravity="center"
     tools:context=".Medication">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,10 +27,9 @@
             android:id="@+id/reg"
             android:layout_width="match_parent"
             android:layout_height="54dp"
-            android:layout_marginLeft="22dp"
-            android:layout_marginRight="15dp"
             android:background="@color/purple_500"
             android:text="New Medication"
+            android:textAlignment="center"
             android:backgroundTint="#1C86EE"
             android:textColor="@color/white"
             android:textSize="30sp" />
@@ -37,7 +38,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="22dp"
             android:text="Medication Name"
             android:textColor="#0123DF">
 
@@ -47,9 +47,7 @@
             android:id="@+id/pill_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="22dp"
             android:layout_marginTop="2dp"
-            android:layout_marginRight="5dp"
             android:hint="Medication Name"
             android:textColor="@color/black"
             android:textColorHint="#92000000"
@@ -59,7 +57,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="22dp"
             android:text="Description"
             android:textColor="#051C9E">
 
@@ -69,9 +66,7 @@
             android:id="@+id/description_pill"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginLeft="22dp"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="5dp"
             android:hint="Description e.g 1 tablet with water"
             android:textColor="@color/black"
             android:textColorHint="#90000000"
@@ -118,4 +113,6 @@
             android:backgroundTint="#1C86EE"
             android:textSize="20dp" />
     </LinearLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
