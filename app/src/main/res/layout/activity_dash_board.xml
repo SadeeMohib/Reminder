@@ -17,7 +17,7 @@
         android:fontFamily="@font/aclonica"
         android:text="Medexox"
         android:textColor="#0023E6"
-        android:textSize="30sp"></TextView>
+        android:textSize="30sp" />
 
 
 
