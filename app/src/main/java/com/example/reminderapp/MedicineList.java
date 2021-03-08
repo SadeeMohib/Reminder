@@ -1,5 +1,6 @@
 package com.example.reminderapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -48,5 +49,10 @@ public class MedicineList extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void back(View view) {
+        finish();
+        startActivity(new Intent(MedicineList.this,DashBoard.class));
     }
 }
