@@ -63,12 +63,11 @@
 
     <TextView
         android:id="@+id/reg_button"
-        android:layout_width="121dp"
+        android:layout_width="match_parent"
         android:layout_height="39dp"
-        android:layout_marginStart="123dp"
         android:layout_marginTop="45dp"
-        android:layout_marginEnd="85dp"
         android:layout_marginBottom="128dp"
+        android:textAlignment="center"
         android:text="Register Here"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
@@ -101,9 +100,10 @@
 
     <TextView
         android:id="@+id/medication_logo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Forgot PassWord?"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:onClick="ForgotPass"
