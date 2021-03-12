@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReminderApp">
+        <activity android:name=".Diabates"></activity>
+        <activity android:name=".Weight" />
+        <activity android:name=".BMR" />
+        <activity android:name=".BMI" />
+        <activity android:name=".BP" />
         <activity android:name=".HealthStatusUpdateActivity" />
         <activity android:name=".HealthStatus" />
         <activity android:name=".UpdateAccActivity" />

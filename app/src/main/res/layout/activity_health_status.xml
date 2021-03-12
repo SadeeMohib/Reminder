@@ -4,19 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_health"
+    android:background="#2D3F51B5"
     tools:context=".HealthStatus">
+
        <LinearLayout
            android:layout_width="match_parent"
-           android:layout_height="match_parent">
-       <ImageView
-           android:id="@+id/back_"
-           android:layout_width="40dp"
-           android:layout_marginTop="15dp"
-           android:layout_height="40dp"
-           android:layout_marginLeft="15dp"
-           android:src="@drawable/ic_baseline_arrow_back_ios_24"
-           android:onClick="backToDash"/>
+           android:layout_height="wrap_content"
+           android:background="#011585"
+           android:onClick="goBP">
+
+              <ImageView
+                  android:id="@+id/back_"
+                  android:layout_width="40dp"
+                  android:layout_height="40dp"
+                  android:layout_marginLeft="15dp"
+                  android:layout_marginTop="15dp"
+                  android:onClick="backToDash"
+                  android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
 
               <TextView
@@ -24,246 +28,209 @@
                   android:layout_height="wrap_content"
                   android:layout_marginLeft="15dp"
                   android:layout_marginTop="15dp"
-                  android:text="Health Status:"
-                  android:textColor="#FFFFFF"
+                  android:text="My Health"
+                  android:textColor="#FFFFFf"
                   android:textSize="32sp" />
 
               <ImageView
                   android:layout_width="40dp"
                   android:layout_height="50dp"
-                  android:layout_marginLeft="60dp"
+                  android:layout_marginLeft="135dp"
+                  android:layout_marginTop="10dp"
                   android:layout_marginRight="20dp"
-                  android:layout_marginTop="15dp"
-                  android:src="@drawable/ic_outline_medical_services_24" />
+                  android:src="@drawable/ic_baseline_quiz_24" />
        </LinearLayout>
+
        <LinearLayout
            android:id="@+id/bpPart"
-           android:layout_width="366dp"
-           android:layout_height="153dp"
+           android:layout_width="395dp"
+           android:layout_height="60dp"
            android:layout_marginLeft="15dp"
-           android:layout_marginRight="25dp"
-           android:layout_marginTop="125dp">
+           android:layout_marginTop="125dp"
+           android:layout_marginRight="15dp"
+           android:background="@color/cardview_light_background"
+           android:onClick="goBP">
 
               <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:fontFamily="sans-serif-medium"
-                  android:background="@drawable/back_"
+                  android:layout_width="190dp"
+                  android:layout_height="58dp"
+                  android:layout_gravity="center_vertical"
                   android:layout_marginLeft="10dp"
+                  android:layout_marginTop="10dp"
+                  android:background="@color/cardview_light_background"
+                  android:fontFamily="sans-serif-medium"
                   android:text="Blood Pressusre :"
-                  android:textSize="30sp" />
+                  android:textColor="#011585"
+                  android:textSize="22dp" />
 
               <TextView
                   android:id="@+id/bloodPressur"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
+                  android:layout_width="135dp"
+                  android:layout_height="match_parent"
                   android:layout_gravity="center"
-                  android:layout_marginLeft="-300dp"
                   android:text="0mmhg"
-                  android:textSize="32dp"
+                  android:textSize="18dp" />
 
-                  />
+              <androidx.cardview.widget.CardView
+                  android:id="@+id/BloodPressure"
+                  android:layout_width="70dp"
+                  android:layout_height="match_parent" />
        </LinearLayout>
 
 
+       <LinearLayout
 
-       <GridLayout
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_below="@+id/Medexox"
-           android:layout_marginTop="300dp"
-           android:columnCount="2"
-           android:rowCount="3"
-           >
+           android:layout_width="395dp"
+           android:layout_height="60dp"
+           android:layout_marginLeft="15dp"
+           android:layout_marginTop="200dp"
+           android:layout_marginRight="15dp"
+           android:background="@color/cardview_light_background"
+           android:onClick="goBMI">
 
+              <TextView
+                  android:layout_width="200dp"
+                  android:layout_height="match_parent"
+                  android:layout_marginLeft="10dp"
+                  android:background="@color/cardview_light_background"
+                  android:fontFamily="sans-serif-medium"
+                  android:gravity="center_vertical"
+                  android:text="BMI                      :"
+                  android:textColor="#011585"
+                  android:textSize="24dp" />
 
-       <androidx.cardview.widget.CardView
-
-           android:id="@+id/BMIcard"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_row="0"
-           android:layout_rowWeight="1"
-           android:layout_column="0"
-           android:layout_columnWeight="1"
-           android:layout_gravity="fill"
-           android:layout_margin="8dp"
-           android:layout_marginLeft="20dp"
-           android:background="@drawable/back_"
-           app:cardCornerRadius="8dp"
-           app:cardElevation="8dp">
-
-              <LinearLayout
-
-                  android:layout_width="150dp"
-                  android:layout_height="150dp"
-                  android:layout_gravity="center_vertical|center_horizontal"
-                  android:orientation="vertical">
-
-
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="10dp"
-                         android:layout_marginTop="10dp"
-                         android:fontFamily="sans-serif-medium"
-                         android:textSize="30sp"
-                         android:text="BMI :"
-                         />
-
-                     <TextView
-                         android:id="@+id/bmi"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:text="0"
-                         android:textAlignment="center"
-                         android:textSize="36dp" />
-              </LinearLayout>
-       </androidx.cardview.widget.CardView>
-
-
-       <androidx.cardview.widget.CardView
-           android:id="@+id/BMRCard"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_row="0"
-           android:layout_rowWeight="1"
-           android:layout_column="1"
-           android:layout_columnWeight="1"
-           android:layout_gravity="fill"
-           android:layout_margin="8dp"
-           android:layout_marginLeft="40dp"
-           app:cardCornerRadius="8dp"
-           app:cardElevation="8dp">
-
-              <LinearLayout
-
-                  android:layout_width="150dp"
-                  android:layout_height="150dp"
-                  android:layout_gravity="center_vertical|center_horizontal"
-                  android:orientation="vertical">
-
-
-                     <TextView
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginLeft="10dp"
-                         android:layout_marginTop="10dp"
-                         android:fontFamily="sans-serif-medium"
-                         android:textSize="30sp"
-                         android:text="BMR :"
-                          />
-                     <TextView
-                         android:id="@+id/bmr"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:text="0"
-                         android:textAlignment="center"
-                         android:textSize="36dp" />
-              </LinearLayout>
-       </androidx.cardview.widget.CardView>
-
-
-
+              <TextView
+                  android:id="@+id/bmi"
+                  android:layout_width="125dp"
+                  android:layout_height="match_parent"
+                  android:gravity="center"
+                  android:text="0"
+                  android:textSize="24dp" />
 
               <androidx.cardview.widget.CardView
+                  android:id="@+id/BMIcard"
+                  android:layout_width="70dp"
+                  android:layout_height="match_parent" />
+       </LinearLayout>
 
+       <LinearLayout
+
+           android:layout_width="395dp"
+           android:layout_height="60dp"
+           android:layout_marginLeft="15dp"
+           android:layout_marginTop="275dp"
+           android:layout_marginRight="15dp"
+           android:background="@color/cardview_light_background"
+           android:onClick="goBMR">
+
+              <TextView
+                  android:layout_width="200dp"
+                  android:layout_height="match_parent"
+                  android:layout_marginLeft="10dp"
+                  android:background="@color/cardview_light_background"
+                  android:fontFamily="sans-serif-medium"
+                  android:gravity="center_vertical"
+                  android:text="BMR                      :"
+                  android:textColor="#011585"
+                  android:textSize="24dp" />
+
+              <TextView
+                  android:id="@+id/bmr"
+                  android:layout_width="125dp"
+                  android:layout_height="match_parent"
+                  android:gravity="center"
+                  android:text="0"
+                  android:textSize="24dp" />
+
+              <androidx.cardview.widget.CardView
+                  android:id="@+id/Bmrcard"
+                  android:layout_width="70dp"
+                  android:layout_height="match_parent" />
+       </LinearLayout>
+
+
+       <LinearLayout
+
+           android:layout_width="371dp"
+           android:layout_height="52dp"
+           android:layout_marginLeft="15dp"
+           android:layout_marginTop="350dp"
+           android:layout_marginRight="15dp"
+           android:background="@color/cardview_light_background"
+           android:onClick="goWeight">
+
+              <TextView
+                  android:layout_width="200dp"
+                  android:layout_height="match_parent"
+                  android:layout_marginLeft="10dp"
+                  android:background="@color/cardview_light_background"
+                  android:fontFamily="sans-serif-medium"
+                  android:gravity="center_vertical"
+                  android:text="Weight                  :"
+                  android:textColor="#011585"
+                  android:textSize="24dp" />
+
+              <TextView
+                  android:id="@+id/weight"
+                  android:layout_width="125dp"
+                  android:layout_height="match_parent"
+                  android:gravity="center"
+                  android:text="0kg"
+                  android:textSize="24dp" />
+
+              <androidx.cardview.widget.CardView
                   android:id="@+id/WeightCard"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_row="1"
-                  android:layout_rowWeight="1"
-                  android:layout_column="0"
-                  android:layout_columnWeight="1"
-                  android:layout_gravity="fill"
-                  android:layout_margin="8dp"
-                  android:layout_marginLeft="20dp"
-                  android:background="@drawable/back_"
-                  app:cardCornerRadius="8dp"
-                  app:cardElevation="8dp">
-
-                     <LinearLayout
-
-                         android:layout_width="150dp"
-                         android:layout_height="150dp"
-                         android:layout_gravity="center_vertical|center_horizontal"
-                         android:orientation="vertical">
+                  android:layout_width="70dp"
+                  android:layout_height="match_parent" />
+       </LinearLayout>
 
 
-                            <TextView
+       <LinearLayout
 
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="sans-serif-medium"
-                                android:textSize="30sp"
-                                android:text="Weight :"
-                                 />
+           android:layout_width="395dp"
+           android:layout_height="60dp"
+           android:layout_marginLeft="15dp"
+           android:layout_marginTop="425dp"
+           android:layout_marginRight="15dp"
+           android:background="@color/cardview_light_background"
+           android:onClick="goDiabates">
 
-                            <TextView
-                                android:id="@+id/weight"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="0kg"
-                                android:textAlignment="center"
-                                android:textSize="36dp" />
-                     </LinearLayout>
-              </androidx.cardview.widget.CardView>
+              <TextView
+                  android:layout_width="200dp"
+                  android:layout_height="match_parent"
+                  android:layout_marginLeft="10dp"
+                  android:background="@color/cardview_light_background"
+                  android:fontFamily="sans-serif-medium"
+                  android:gravity="center_vertical"
+                  android:text="Diabates               :"
+                  android:textColor="#011585"
+                  android:textSize="24dp" />
 
+              <TextView
+                  android:id="@+id/diabetes"
+                  android:layout_width="125dp"
+                  android:layout_height="match_parent"
+                  android:gravity="center"
+                  android:text="0"
+                  android:textSize="24dp" />
 
               <androidx.cardview.widget.CardView
                   android:id="@+id/DiabetesCard"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_row="1"
-                  android:layout_rowWeight="1"
-                  android:layout_column="1"
-                  android:layout_columnWeight="1"
-                  android:layout_gravity="fill"
-                  android:layout_margin="8dp"
-                  android:layout_marginLeft="40dp"
-                  app:cardCornerRadius="8dp"
-                  app:cardElevation="8dp">
+                  android:layout_width="70dp"
+                  android:layout_height="match_parent" />
+       </LinearLayout>
 
-                     <LinearLayout
-
-                         android:layout_width="150dp"
-                         android:layout_height="150dp"
-                         android:orientation="vertical">
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="10dp"
-                                android:fontFamily="sans-serif-medium"
-                                android:textSize="30sp"
-                                android:text="Diabetes"
-                                 />
-                            <TextView
-                                android:id="@+id/diabetes"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="0"
-                                android:textAlignment="center"
-                                android:textSize="36dp" />
-                     </LinearLayout>
-              </androidx.cardview.widget.CardView>
-
-       </GridLayout>
 
        <Button
            android:id="@+id/Updatebutton"
            android:layout_width="250dp"
            android:layout_height="wrap_content"
-           android:layout_marginTop="660dp"
            android:layout_centerHorizontal="true"
+           android:layout_marginTop="570dp"
+           android:background="@drawable/rounded_button"
            android:backgroundTint="#011585"
            android:onClick="back"
            android:shadowColor="#FFFFFF"
-           android:background="@drawable/rounded_button"
            android:text="Update"
            android:textColor="#FFFFFF" />
 

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.health.HealthStats;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.reminderapp.UserAuth.Health;
@@ -47,10 +48,11 @@ public class HealthStatus extends AppCompatActivity {
 
         databaseReference= FirebaseDatabase.getInstance().getReference();
 
-        BmiCard=(CardView)findViewById(R.id.BMIcard);
-        BmrCard=(CardView)findViewById(R.id.BMRCard);
-        WeightCard=(CardView)findViewById(R.id.WeightCard);
-        DiabetesCard=(CardView)findViewById(R.id.DiabetesCard);
+        BloodPressure=(CardView) findViewById(R.id.BloodPressure);
+        BmiCard=(CardView) findViewById(R.id.BMIcard);
+        BmrCard=(CardView) findViewById(R.id.Bmrcard);
+        WeightCard=(CardView) findViewById(R.id.WeightCard);
+        DiabetesCard=(CardView) findViewById(R.id.DiabetesCard);
 
         bmi=(TextView)findViewById(R.id.bmi);
         bmr=(TextView)findViewById(R.id.bmr);
@@ -92,6 +94,7 @@ public class HealthStatus extends AppCompatActivity {
 
                 if(bmi1.equals("0.0") && bmr1.equals("0.0") && weight1.equals("0.0") && dia1.equals("0.0"))
                 {
+
                     BmiCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
                     BmrCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
                     WeightCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
@@ -135,20 +138,20 @@ public class HealthStatus extends AppCompatActivity {
                 }
                 if(systol<120.0)
                 {
-                    bloodPress.setBackgroundColor(Color.parseColor("#00FF7F"));
+                    BloodPressure.setCardBackgroundColor(Color.parseColor("#00FF7F"));
                 }
 
                 if(systol>=120.0 && systol<=129.0)
                 {
-                    bloodPress.setBackgroundColor(Color.parseColor("#ffff00"));
+                    BloodPressure.setCardBackgroundColor(Color.parseColor("#ffff00"));
                 }
                 if(systol>=130.0 && systol<=139.0)
                 {
-                    bloodPress.setBackgroundColor(Color.parseColor("#FF9903"));
+                    BloodPressure.setCardBackgroundColor(Color.parseColor("#FF9903"));
                 }
                 if(systol>=140.0)
                 {
-                    bloodPress.setBackgroundColor(Color.parseColor("#FF4500"));
+                    BloodPressure.setCardBackgroundColor(Color.parseColor("#FF4500"));
                 }
 
                 bloodP=String.valueOf(systol)+"/"+String.valueOf(diastol)+"(Sys/Dia)";
@@ -167,6 +170,36 @@ public class HealthStatus extends AppCompatActivity {
     }
     public void backToDash(View view) {
         Intent intent=new Intent(HealthStatus.this,DashBoard.class);
+        finish();
+        startActivity(intent);
+
+    }
+    public void goBP(View view) {
+        Intent intent=new Intent(HealthStatus.this,BP.class);
+        finish();
+        startActivity(intent);
+
+    }
+    public void goBMI(View view) {
+        Intent intent=new Intent(HealthStatus.this,BMI.class);
+        finish();
+        startActivity(intent);
+
+    }
+    public void goBMR(View view) {
+        Intent intent=new Intent(HealthStatus.this,BMR.class);
+        finish();
+        startActivity(intent);
+
+    }
+    public void goWeight(View view) {
+        Intent intent=new Intent(HealthStatus.this,Weight.class);
+        finish();
+        startActivity(intent);
+
+    }
+    public void goDiabates(View view) {
+        Intent intent=new Intent(HealthStatus.this,Diabates.class);
         finish();
         startActivity(intent);
 
