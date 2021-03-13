@@ -7,6 +7,7 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.health.HealthStats;
 import android.view.View;
 import android.widget.ImageView;
@@ -31,7 +32,7 @@ public class HealthStatus extends AppCompatActivity {
 
     CardView BloodPressure,BmiCard,BmrCard,WeightCard,DiabetesCard;
     TextView bmi,bmr,bloodPress,weight,diabetes;
-    ImageView back;
+    ImageView back,popup,ques;
     String bloodP;
     Health health;
 
@@ -54,13 +55,28 @@ public class HealthStatus extends AppCompatActivity {
         WeightCard=(CardView) findViewById(R.id.WeightCard);
         DiabetesCard=(CardView) findViewById(R.id.DiabetesCard);
 
+
+
         bmi=(TextView)findViewById(R.id.bmi);
         bmr=(TextView)findViewById(R.id.bmr);
         weight=(TextView)findViewById(R.id.weight);
         diabetes=(TextView)findViewById(R.id.diabetes);
         bloodPress=(TextView)findViewById(R.id.bloodPressur);
 
+
+
         back=(ImageView)findViewById(R.id.back_) ;
+        popup=(ImageView)findViewById(R.id.popup);
+        ques=(ImageView)findViewById(R.id.ques);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                popup.setVisibility(View.GONE);
+            }
+        },5000);
+
 
         getData(databaseReference,uid);
 
@@ -168,6 +184,16 @@ public class HealthStatus extends AppCompatActivity {
             }
         });
     }
+
+
+
+
+
+
+
+
+
+
     public void backToDash(View view) {
         Intent intent=new Intent(HealthStatus.this,DashBoard.class);
         finish();
@@ -210,6 +236,20 @@ public class HealthStatus extends AppCompatActivity {
         intent.putExtra("sex",gender);
         finish();
         startActivity(intent);
+
+    }
+
+    public void popUp(View view) {
+
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                popup.setVisibility(View.VISIBLE);
+
+            }
+        },5000);
+
 
     }
 }
