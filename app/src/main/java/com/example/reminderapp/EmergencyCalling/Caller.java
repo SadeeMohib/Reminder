@@ -10,7 +10,7 @@ import android.net.Uri;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-public class Caller {
+public class Caller extends Activity{
 
     //this class do the call work
     private static final int REQUEST_PHONE_CALL = 1;

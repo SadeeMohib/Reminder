@@ -89,6 +89,7 @@ public class CallerAdapter extends RecyclerView.Adapter<CallerAdapter.MyHolder> 
         ItemInfo currentItem=itemInfos.get(position);
 
         holder.adimg.setImageResource(currentItem.getImgRec());
+        holder.mcall.setImageResource(currentItem.getCalImg());
         holder.adname.setText(currentItem.getName());
         holder.adnum.setText(currentItem.getNum());
     }
