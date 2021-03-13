@@ -66,16 +66,15 @@ public class HealthStatus extends AppCompatActivity {
 
 
         back=(ImageView)findViewById(R.id.back_) ;
-        popup=(ImageView)findViewById(R.id.popup);
+        popup=(ImageView)findViewById(R.id.healthBar);
         ques=(ImageView)findViewById(R.id.ques);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 popup.setVisibility(View.GONE);
             }
-        },5000);
+        },2500);
 
 
         getData(databaseReference,uid);
@@ -186,14 +185,6 @@ public class HealthStatus extends AppCompatActivity {
     }
 
 
-
-
-
-
-
-
-
-
     public void backToDash(View view) {
         Intent intent=new Intent(HealthStatus.this,DashBoard.class);
         finish();
@@ -233,23 +224,19 @@ public class HealthStatus extends AppCompatActivity {
     public void back(View view) {
         Intent intent=new Intent(HealthStatus.this,HealthStatusUpdateActivity.class);
         intent.putExtra("Age",age);
-        intent.putExtra("sex",gender);
+        intent.putExtra("Sex",gender);
         finish();
         startActivity(intent);
 
     }
 
     public void popUp(View view) {
-
-
+        popup.setVisibility(View.VISIBLE);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                popup.setVisibility(View.VISIBLE);
-
+                popup.setVisibility(View.GONE);
             }
-        },5000);
-
-
+        },2500);
     }
 }
