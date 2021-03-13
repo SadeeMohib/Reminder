@@ -11,11 +11,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.reminderapp.EmergencyCalling.ItemInfo;
+
 import java.util.ArrayList;
 
 public class MedicineList extends AppCompatActivity {
     Button save;
-    ArrayList<String> medicineName = new ArrayList<>();
+    ArrayList<ItemInfo> itemInfos=new ArrayList<>();
     EditText txt;
     ListView show;
 
@@ -24,35 +26,16 @@ public class MedicineList extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_medicinename);
-        txt = (EditText) findViewById(R.id.listOfMedicine);
-        show = (ListView) findViewById(R.id.medicineList);
-        save = (Button) findViewById(R.id.saveMedicineName);
-
-        save.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String getInput = txt.getText().toString();
-
-                if (medicineName.contains(getInput)) {
-                    Toast.makeText(getBaseContext(), "Item exits", Toast.LENGTH_LONG).show();
-                }
-                else if (getInput == null || getInput.trim().equals(" ")) {
-                    Toast.makeText(getBaseContext(), "Input field is empty", Toast.LENGTH_LONG).show();
-                }
-                else {
-                    medicineName.add(getInput);
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(MedicineList.this, android.R.layout.simple_list_item_1, medicineName);
-                    show.setAdapter(arrayAdapter);
-                    ((EditText) findViewById(R.id.listOfMedicine)).setText(" ");
-                }
-            }
-        });
 
     }
 
     public void back(View view) {
         finish();
         startActivity(new Intent(MedicineList.this,DashBoard.class));
+    }
+
+    public void adder(View view) {
+        finish();
+        startActivity(new Intent(MedicineList.this,AddCallerActivity.class));
     }
 }
