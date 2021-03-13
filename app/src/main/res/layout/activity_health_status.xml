@@ -71,7 +71,8 @@
                   android:layout_height="match_parent"
                   android:layout_gravity="center"
                   android:text="0mmhg"
-                  android:textSize="18dp" />
+                  android:textSize="18dp"
+                  android:textColor="@color/black"/>
 
               <androidx.cardview.widget.CardView
                   android:id="@+id/BloodPressure"
@@ -107,7 +108,8 @@
                   android:layout_height="match_parent"
                   android:gravity="center"
                   android:text="0"
-                  android:textSize="24dp" />
+                  android:textSize="24dp"
+                  android:textColor="@color/black"/>
 
               <androidx.cardview.widget.CardView
                   android:id="@+id/BMIcard"
@@ -142,7 +144,8 @@
                   android:layout_height="match_parent"
                   android:gravity="center"
                   android:text="0"
-                  android:textSize="24dp" />
+                  android:textSize="24dp"
+                  android:textColor="@color/black"/>
 
               <androidx.cardview.widget.CardView
                   android:id="@+id/Bmrcard"
@@ -178,7 +181,8 @@
                   android:layout_height="match_parent"
                   android:gravity="center"
                   android:text="0kg"
-                  android:textSize="24dp" />
+                  android:textSize="24dp"
+                  android:textColor="@color/black"/>
 
               <androidx.cardview.widget.CardView
                   android:id="@+id/WeightCard"
@@ -214,7 +218,8 @@
                   android:layout_height="match_parent"
                   android:gravity="center"
                   android:text="0"
-                  android:textSize="24dp" />
+                  android:textSize="24dp"
+                  android:textColor="@color/black"/>
 
               <androidx.cardview.widget.CardView
                   android:id="@+id/DiabetesCard"
