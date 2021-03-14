@@ -14,6 +14,7 @@ public class ItemInfo {
         this.num=num;
         imgRec=Img;
         this.calImg=calImg;
+
     }
 
     public String getName()
