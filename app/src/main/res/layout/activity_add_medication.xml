@@ -16,7 +16,7 @@
         android:textColor="@color/white"
         android:textSize="30sp" />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
