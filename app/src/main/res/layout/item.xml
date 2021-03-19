@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="4dp"
-        android:background="@color/purple_200">
+        android:background="@color/blu">
 
         <ImageView
             android:id="@+id/img1"
@@ -46,8 +46,17 @@
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="252dp"
-            android:layout_marginEnd="0dp"
-            android:background="@drawable/ic_baseline"
+            android:layout_marginEnd="-1dp"
+            android:background="@drawable/ic_baseline_email_24"
+            android:padding="2dp" />
+
+        <ImageView
+            android:id="@+id/sms"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/cal"
+            android:layout_marginLeft="-80dp"
+            android:background="@drawable/ic_baseline_sms_24"
             android:padding="2dp" />
 
     </RelativeLayout>

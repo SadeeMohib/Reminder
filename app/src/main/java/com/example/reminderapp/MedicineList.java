@@ -38,6 +38,8 @@ public class MedicineList extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseUser fUser;
     String uid;
+    ArrayList<String> callerid=new ArrayList<>();
+    ArrayList<String> calleremail=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +71,7 @@ public class MedicineList extends AppCompatActivity {
         public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
             new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
                     .addSwipeLeftBackgroundColor(ContextCompat.getColor(MedicineList.this,R.color.orenge_red))
-                    .addSwipeLeftActionIcon(R.drawable.ic_baseline)
+                    .addSwipeLeftActionIcon(R.drawable.ic_baseline_remove_circle_24)
                     .create()
                     .decorate();
             super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
@@ -81,10 +83,13 @@ public class MedicineList extends AppCompatActivity {
         dbf.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                itemInfos.clear();
                 for(DataSnapshot dsp:snapshot.getChildren()) {
                     String nam = dsp.child("name1").getValue(String.class);
                     String num = dsp.child("num").getValue(String.class);
-                    itemInfos.add(new ItemInfo(nam, num, R.drawable.ic_android,R.drawable.ic_baseline));
+                    callerid.add(dsp.child("id").getValue(String.class));
+                    calleremail.add(dsp.child("email").getValue(String.class));
+                    itemInfos.add(new ItemInfo(nam, num, R.drawable.ic_android,R.drawable.ic_baseline_email_24,R.drawable.ic_baseline_sms_24));
                 }
                 rcl.setHasFixedSize(true);
                 mlayoutManager=new LinearLayoutManager(cnt);
@@ -103,9 +108,24 @@ public class MedicineList extends AppCompatActivity {
 
                     @Override
                     public void OnCallClick(int pos) {
-
+                        String email=calleremail.get(pos);
+                        Intent intent=new Intent(MedicineList.this,EmailBodyActivity.class);
+                        intent.putExtra("mail",email);
+                        finish();
+                        startActivity(intent);
                         //remove(itemInfos,pos,mAdapter);
                     }
+
+                    @Override
+                    public void OnSMSClick(int pos) {
+                        String getnum= itemInfos.get(pos).getNum();
+                        Intent intent=new Intent(MedicineList.this,SmsbodyActivity.class);
+                        intent.putExtra("Num",getnum);
+                        finish();
+                        startActivity(intent);
+                    }
+
+
                 });
                 ItemTouchHelper itemTouchHelper=new ItemTouchHelper(simpleCallback);
                 itemTouchHelper.attachToRecyclerView(rcl);
@@ -121,7 +141,10 @@ public class MedicineList extends AppCompatActivity {
     public void remove( ArrayList<ItemInfo> item,int pos,CallerAdapter adapter)
     {
         item.remove(pos);
+        databaseReference.child(callerid.get(pos)).removeValue();
+        callerid.remove(pos);
         adapter.notifyItemRemoved(pos);
+        //Toast.makeText(MedicineList.this,callerid.get(pos),Toast.LENGTH_LONG).show();
     }
 
 

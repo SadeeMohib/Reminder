@@ -4,6 +4,7 @@
     package="com.example.reminderapp">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReminderApp"
         tools:replace="android:icon">
-        <activity android:name=".EmergencyCallShow"></activity>
+        <activity android:name=".SmsbodyActivity"></activity>
+        <activity android:name=".EmailBodyActivity" />
+        <activity android:name=".EmergencyCallShow" />
         <activity android:name=".AddCallerActivity" />
         <activity android:name=".Diabates" />
         <activity android:name=".Weight" />

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,10 +22,10 @@ import java.util.Random;
 
 public class AddCallerActivity extends AppCompatActivity {
 
-    EditText name,num;
+    EditText name,num,mail;
     DatabaseReference databaseReference;
     FirebaseUser fUser;
-    String id2,uid,nam,num1;
+    String id2,uid,nam,num1,email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class AddCallerActivity extends AppCompatActivity {
 
         name=(EditText)findViewById(R.id.cnt_name);
         num=(EditText)findViewById(R.id.snt_num);
+        mail=(EditText)findViewById(R.id.snt_email);
 
         fUser=FirebaseAuth.getInstance().getCurrentUser();
         uid=fUser.getUid();
@@ -45,6 +47,7 @@ public class AddCallerActivity extends AppCompatActivity {
     public void add(View view){
         nam=name.getText().toString();
         num1=num.getText().toString();
+        email=mail.getText().toString();
 
         if(nam.isEmpty())
         {
@@ -58,7 +61,9 @@ public class AddCallerActivity extends AppCompatActivity {
             num.requestFocus();
             return;
         }
-        CallerInfo callerInfo=new CallerInfo(nam,num1,id2);
+
+
+        CallerInfo callerInfo=new CallerInfo(nam,num1,id2,email);
         databaseReference.child(uid).child(id2).setValue(callerInfo).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {

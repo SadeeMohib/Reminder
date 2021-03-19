@@ -21,6 +21,7 @@ public class CallerAdapter extends RecyclerView.Adapter<CallerAdapter.MyHolder> 
     public interface  OnItemClickListener{
         void OnItemClick(int pos);
         void OnCallClick(int pos);
+        void OnSMSClick(int pos);
     }
 
     public void setItemClickListener(OnItemClickListener onItemClickListener){
@@ -29,13 +30,14 @@ public class CallerAdapter extends RecyclerView.Adapter<CallerAdapter.MyHolder> 
 
     public static class MyHolder extends RecyclerView.ViewHolder{
         public TextView adname,adnum;
-        public ImageView adimg,mcall;
+        public ImageView adimg,mcall,sms;
         public MyHolder(@NonNull View itemView,OnItemClickListener listener) {
             super(itemView);
             adname=itemView.findViewById(R.id.name1);
             adnum=itemView.findViewById(R.id.num1);
             adimg=itemView.findViewById(R.id.img1);
             mcall=itemView.findViewById(R.id.cal);
+            sms=itemView.findViewById(R.id.sms);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -67,6 +69,21 @@ public class CallerAdapter extends RecyclerView.Adapter<CallerAdapter.MyHolder> 
                     }
                 }
             });
+
+            sms.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(listener!=null)
+                    {
+                        int position=getAdapterPosition();
+
+                        if(position!=RecyclerView.NO_POSITION)
+                        {
+                            listener.OnSMSClick(position);
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -90,6 +107,7 @@ public class CallerAdapter extends RecyclerView.Adapter<CallerAdapter.MyHolder> 
 
         holder.adimg.setImageResource(currentItem.getImgRec());
         holder.mcall.setImageResource(currentItem.getCalImg());
+        holder.sms.setImageResource(currentItem.getSmsImg());
         holder.adname.setText(currentItem.getName());
         holder.adnum.setText(currentItem.getNum());
     }
