@@ -10,8 +10,7 @@
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:background="#011585"
-           android:onClick="goBP">
+           android:background="#011585">
 
               <ImageView
                   android:id="@+id/back_"
@@ -79,6 +78,7 @@
               <androidx.cardview.widget.CardView
                   android:id="@+id/BloodPressure"
                   android:layout_width="70dp"
+                  android:background="@drawable/ic_outline_medical_services_24"
                   android:layout_height="match_parent" />
        </LinearLayout>
 
@@ -115,6 +115,7 @@
 
               <androidx.cardview.widget.CardView
                   android:id="@+id/BMIcard"
+                  android:background="@color/cardview_light_background"
                   android:layout_width="70dp"
                   android:layout_height="match_parent" />
        </LinearLayout>
@@ -152,6 +153,7 @@
               <androidx.cardview.widget.CardView
                   android:id="@+id/Bmrcard"
                   android:layout_width="70dp"
+                  android:background="@color/cardview_light_background"
                   android:layout_height="match_parent" />
        </LinearLayout>
 
@@ -188,6 +190,7 @@
 
               <androidx.cardview.widget.CardView
                   android:id="@+id/WeightCard"
+                  android:background="@color/cardview_light_background"
                   android:layout_width="70dp"
                   android:layout_height="match_parent" />
        </LinearLayout>
@@ -225,6 +228,7 @@
 
               <androidx.cardview.widget.CardView
                   android:id="@+id/DiabetesCard"
+                  android:background="@color/cardview_light_background"
                   android:layout_width="70dp"
                   android:layout_height="match_parent" />
        </LinearLayout>

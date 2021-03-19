@@ -1,0 +1,124 @@
+package com.example.reminderapp;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
+import android.view.View;
+import android.widget.Toast;
+
+import com.example.reminderapp.DoctorsList.DocListAdapter;
+import com.example.reminderapp.DoctorsList.DocListInfo;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
+public class DoctListActivity extends AppCompatActivity {
+    RecyclerView rcl;
+    RecyclerView.LayoutManager mlayoutManager;
+    DocListAdapter docListAdapter;
+    ConstraintLayout constraintLayout;
+    CardView cardView;
+
+    ArrayList<DocListInfo> docListInfos=new ArrayList<>();
+    ArrayList<String> emailList=new ArrayList<>();
+    ArrayList<String> contList=new ArrayList<>();
+
+    DatabaseReference databaseReference;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_doct_list);
+
+        rcl=(RecyclerView)findViewById(R.id.rclview2);
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("DoctorList").child("Cardiac");
+
+        getData(databaseReference,DoctListActivity.this);
+    }
+
+    public void getData(DatabaseReference dbf, Context context)
+    {
+        dbf.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                docListInfos.clear();
+                int i=0;
+                for(DataSnapshot dsp:snapshot.getChildren())
+                {
+                    i++;
+                    String nam=dsp.child("docname").getValue(String.class);
+                    String num=dsp.child("phnNo").getValue(String.class);
+                    String desc=dsp.child("academicInfo").getValue(String.class);
+                    String mail=dsp.child("docemail").getValue(String.class);
+                    String id=dsp.child("id").getValue(String.class);
+                    contList.add(num);
+                    emailList.add(mail);
+                    docListInfos.add(new DocListInfo(nam,num,desc,mail,R.drawable.an_profile,R.drawable.ic_baseline,R.drawable.ic_baseline_email_24));
+                    //Toast.makeText(context,id,Toast.LENGTH_SHORT).show();
+                }
+                rcl.setHasFixedSize(true);
+                mlayoutManager=new LinearLayoutManager(context);
+                docListAdapter=new DocListAdapter(docListInfos);
+                rcl.setLayoutManager(mlayoutManager);
+                rcl.setAdapter(docListAdapter);
+
+                Toast.makeText(context,String.valueOf(docListInfos.size()),Toast.LENGTH_LONG).show();
+                docListAdapter.setItemClickListener(new DocListAdapter.OnItemClickListener() {
+                    @Override
+                    public void OnCallClick(int pos) {
+
+                    }
+
+                    @Override
+                    public void OnMailClick(int pos) {
+
+                    }
+
+                    @Override
+                    public void OnArrowClick() {
+                        if(constraintLayout.getVisibility()==View.GONE)
+                        {
+                            TransitionManager.beginDelayedTransition(cardView,new AutoTransition());
+                            constraintLayout.setVisibility(View.VISIBLE);
+
+                        }
+                        else
+                        {
+                            TransitionManager.beginDelayedTransition(cardView,new AutoTransition());
+                            constraintLayout.setVisibility(View.VISIBLE);
+
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(context,error.getMessage(),Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    public void addy(View view) {
+        finish();
+        startActivity(new Intent(DoctListActivity.this,DoctAddActivity.class));
+    }
+
+    public void back(View view) {
+        finish();
+        startActivity(new Intent(DoctListActivity.this,HealthStatus.class));
+    }
+}

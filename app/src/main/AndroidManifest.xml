@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReminderApp"
         tools:replace="android:icon">
-        <activity android:name=".SmsbodyActivity"></activity>
+        <activity android:name=".DoctAddActivity"></activity>
+        <activity android:name=".DoctListActivity" />
+        <activity android:name=".SmsbodyActivity" />
         <activity android:name=".EmailBodyActivity" />
         <activity android:name=".EmergencyCallShow" />
         <activity android:name=".AddCallerActivity" />

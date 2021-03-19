@@ -69,6 +69,7 @@ public class HealthStatus extends AppCompatActivity {
         pop=(ImageView)findViewById(R.id.healthBar);
         ques=(ImageView)findViewById(R.id.ques);
 
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -111,63 +112,85 @@ public class HealthStatus extends AppCompatActivity {
                 if(bmi1.equals("0.0") && bmr1.equals("0.0") && weight1.equals("0.0") && dia1.equals("0.0"))
                 {
 
-                    BmiCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
-                    BmrCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
-                    WeightCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
-                    DiabetesCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    //BmiCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    //BmrCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    //WeightCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    //DiabetesCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+
+                    bmi.setTextColor(Color.parseColor("#00bfff"));
+                    bmr.setTextColor(Color.parseColor("#00bfff"));
+                    weight.setTextColor(Color.parseColor("#00bfff"));
+                    diabetes.setTextColor(Color.parseColor("#00bfff"));
+                    bloodPress.setTextColor(Color.parseColor("#00bfff"));
 
                 }
 
                 if(bmival>0.0 && bmival<=18.5)
                 {
                     //underweight
-                    BmiCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    //BmiCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    bmi.setTextColor(Color.parseColor("#00bfff"));
+                    weight.setTextColor(Color.parseColor("#00bfff"));
                 }
                 if(bmival>18.5 && bmival<=24.5)
                 {
                     //normal weight
-                    BmiCard.setCardBackgroundColor(Color.parseColor("#00FF7F"));
+                    //BmiCard.setCardBackgroundColor(Color.parseColor("#00FF7F"));
+                    bmi.setTextColor(Color.parseColor("#14C56C"));
+                    weight.setTextColor(Color.parseColor("#14C56C"));
                 }
                 if(bmival>24.5 && bmival<=29.9)
                 {
                     //over weight
-                    BmiCard.setCardBackgroundColor(Color.parseColor("#ffff00"));
+                    //BmiCard.setCardBackgroundColor(Color.parseColor("#ffff00"));
+                    bmi.setTextColor(Color.parseColor("#E8E827"));
+                    weight.setTextColor(Color.parseColor("#E8E827"));
                 }
                 if(bmival>29.9)
                 {
                     //obese
-                    BmiCard.setCardBackgroundColor(Color.parseColor("#FF4500"));
+                    //BmiCard.setCardBackgroundColor(Color.parseColor("#FF4500"));
+                    bmi.setTextColor(Color.parseColor("#FF4500"));
+                    weight.setTextColor(Color.parseColor("#FF4500"));
                 }
 
                 if(diab<=4.0)
                 {
-                    DiabetesCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    //DiabetesCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
+                    diabetes.setTextColor(Color.parseColor("#00bfff"));
                 }
 
                 if(diab>4.0 && diab<=6.0)
                 {
-                    DiabetesCard.setCardBackgroundColor(Color.parseColor("#00FF7F"));
+                    //DiabetesCard.setCardBackgroundColor(Color.parseColor("#00FF7F"));
+                    diabetes.setTextColor(Color.parseColor("#14C56C"));
+
                 }
                 if(diab>6.0)
                 {
-                    DiabetesCard.setCardBackgroundColor(Color.parseColor("#FF4500"));
+                    //DiabetesCard.setCardBackgroundColor(Color.parseColor("#FF4500"));
+                    diabetes.setTextColor(Color.parseColor("#DF3104"));
                 }
                 if(systol<120.0)
                 {
-                    BloodPressure.setCardBackgroundColor(Color.parseColor("#00FF7F"));
+                    //BloodPressure.setCardBackgroundColor(Color.parseColor("#00FF7F"));
+                    bloodPress.setTextColor(Color.parseColor("#00FF7F"));
                 }
 
                 if(systol>=120.0 && systol<=129.0)
                 {
-                    BloodPressure.setCardBackgroundColor(Color.parseColor("#ffff00"));
+                    //BloodPressure.setCardBackgroundColor(Color.parseColor("#ffff00"));
+                    bloodPress.setTextColor(Color.parseColor("#ffff00"));
                 }
                 if(systol>=130.0 && systol<=139.0)
                 {
-                    BloodPressure.setCardBackgroundColor(Color.parseColor("#FF9903"));
+                    //BloodPressure.setCardBackgroundColor(Color.parseColor("#FF9903"));
+                    bloodPress.setTextColor(Color.parseColor("#FF9903"));
                 }
                 if(systol>=140.0)
                 {
-                    BloodPressure.setCardBackgroundColor(Color.parseColor("#FF4500"));
+                    //BloodPressure.setCardBackgroundColor(Color.parseColor("#FF4500"));
+                    bloodPress.setTextColor(Color.parseColor("#FF4500"));
                 }
 
                 bloodP=String.valueOf(systol)+"/"+String.valueOf(diastol)+"(Sys/Dia)";
@@ -201,7 +224,7 @@ public class HealthStatus extends AppCompatActivity {
 
     }
     public void goBP(View view) {
-        Intent intent=new Intent(HealthStatus.this,BP.class);
+        Intent intent=new Intent(HealthStatus.this,DoctListActivity.class);
         finish();
         startActivity(intent);
 
