@@ -27,7 +27,7 @@ public class DoctAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doct_add);
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("DoctorList/Cardiac");
+        databaseReference= FirebaseDatabase.getInstance().getReference("DoctorList/Nutritionist");
 
         DocNam=(EditText)findViewById(R.id.name);
         Hos=(EditText)findViewById(R.id.hos);

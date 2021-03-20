@@ -224,7 +224,8 @@ public class HealthStatus extends AppCompatActivity {
 
     }
     public void goBMI(View view) {
-        Intent intent=new Intent(HealthStatus.this,BMI.class);
+        Intent intent=new Intent(HealthStatus.this,DoctListActivity.class);
+        intent.putExtra("typ","Nutritionist");
         finish();
         startActivity(intent);
 
@@ -242,7 +243,8 @@ public class HealthStatus extends AppCompatActivity {
 
     }
     public void goDiabates(View view) {
-        Intent intent=new Intent(HealthStatus.this,Diabates.class);
+        Intent intent=new Intent(HealthStatus.this,DoctListActivity.class);
+        intent.putExtra("typ","Diabetes");
         finish();
         startActivity(intent);
 

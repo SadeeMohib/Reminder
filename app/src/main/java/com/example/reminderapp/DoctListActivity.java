@@ -65,7 +65,7 @@ public class DoctListActivity extends AppCompatActivity {
                     i++;
                     String nam=dsp.child("docname").getValue(String.class);
                     String num=dsp.child("phnNo").getValue(String.class);
-                    String desc=dsp.child("academicInfo").getValue(String.class);
+                    String desc=dsp.child("academicInfo").getValue(String.class)+"\n"+dsp.child("Hospital").getValue(String.class);
                     String mail=dsp.child("docemail").getValue(String.class);
                     String id=dsp.child("id").getValue(String.class);
                     contList.add(num);
