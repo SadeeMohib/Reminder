@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,7 +64,7 @@ public class BMI extends AppCompatActivity {
                     //BmrCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
                     //WeightCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
                     //DiabetesCard.setCardBackgroundColor(Color.parseColor("#00bfff"));
-                    b_m_i.setText("Null");
+                    cat.setText("Null");
 
 
                 }
@@ -70,24 +72,24 @@ public class BMI extends AppCompatActivity {
                 if (bmival > 0.0 && bmival <= 18.5) {
                     //underweight
                     Toast.makeText(BMI.this,bmi1,Toast.LENGTH_LONG).show();
-                    b_m_i.setText("Underweight");
+                    cat.setText("Underweight");
 
                 }
                 if (bmival > 18.5 && bmival <= 24.5) {
                     //normal weight
                     Toast.makeText(BMI.this,bmi1,Toast.LENGTH_LONG).show();
-                    b_m_i.setText("Normal");
+                    cat.setText("Normal");
                 }
                 if (bmival > 24.5 && bmival <= 29.9) {
                     //over weight
                     //BmiCard.setCardBackgroundColor(Color.parseColor("#ffff00"));
                     Toast.makeText(BMI.this,bmi1,Toast.LENGTH_LONG).show();
-                    b_m_i.setText("Overweight");
+                    cat.setText("Overweight");
                 }
                 if (bmival > 29.9) {
                     //obese
                     Toast.makeText(BMI.this,bmi1,Toast.LENGTH_LONG).show();
-                    b_m_i.setText("Obese");
+                    cat.setText("Obese");
                 }
                 b_m_i.setText(bmi1);
                 weight_.setText(weight1);
@@ -98,10 +100,17 @@ public class BMI extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(BMI.this,error.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
 
 
+    }
+
+    public void goDocList(View view) {
+        Intent intent=new Intent(BMI.this,DoctListActivity.class);
+        intent.putExtra("typ","Nutritionist");
+        finish();
+        startActivity(intent);
     }
 }
