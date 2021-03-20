@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +26,7 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListAdapter.DocHolde
     public interface  OnItemClickListener{
         void OnCallClick(int pos);
         void OnMailClick(int pos);
-        void OnArrowClick();
+        void OnArrowClick(int pos);
     }
 
     public void setItemClickListener(OnItemClickListener onItemClickListener){
@@ -37,6 +38,7 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListAdapter.DocHolde
         Button ArrBtn;
         TextView name,desc,phnno,mailad;
         ConstraintLayout constraintLayout;
+        CardView cardView;
 
         public DocHolder(@NonNull View itemView, OnItemClickListener listener) {
             super(itemView);
@@ -51,11 +53,18 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListAdapter.DocHolde
 
 
             ArrBtn=itemView.findViewById(R.id.arrowBtn);
+            constraintLayout=itemView.findViewById(R.id.expandableView);
+            cardView=itemView.findViewById(R.id.motherCard);
 
             ArrBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    listener.OnArrowClick();
+                    if(listener!=null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            listener.OnArrowClick(position);
+                        }
+                    }
                 }
             });
 
@@ -113,6 +122,8 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListAdapter.DocHolde
             holder.MailImg.setImageResource(docListInfo.getMailImg());
             holder.phnImg.setImageResource(docListInfo.getPhnImg());
             holder.profImg.setImageResource(docListInfo.getProflImg());
+            holder.constraintLayout.setId(docListInfo.getExpandablecont());
+            holder.cardView.setId(docListInfo.getCardview());
 
             holder.name.setText(docListInfo.getName());
             holder.desc.setText(docListInfo.getDesc());

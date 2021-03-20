@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/motherCard"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#E4E3E3">
 
@@ -115,7 +116,7 @@
                     android:id="@+id/phoneDesc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Mobile"
+                    android:text="Tap to call"
                     android:layout_marginStart="32dp"
                     android:textColor="#8A000000"
                     style="@style/TextAppearance.AppCompat.Body1"

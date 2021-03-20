@@ -210,13 +210,6 @@ public class HealthStatus extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
     public void backToDash(View view) {
         Intent intent=new Intent(HealthStatus.this,DashBoard.class);
         finish();
@@ -225,6 +218,7 @@ public class HealthStatus extends AppCompatActivity {
     }
     public void goBP(View view) {
         Intent intent=new Intent(HealthStatus.this,DoctListActivity.class);
+        intent.putExtra("typ","Cardiac");
         finish();
         startActivity(intent);
 

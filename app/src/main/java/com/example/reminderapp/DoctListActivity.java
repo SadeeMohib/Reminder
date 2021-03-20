@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.reminderapp.DoctorsList.DocListAdapter;
 import com.example.reminderapp.DoctorsList.DocListInfo;
+import com.example.reminderapp.EmergencyCalling.Caller;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,8 +44,11 @@ public class DoctListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doct_list);
 
+        Intent intent=getIntent();
+        String type=intent.getStringExtra("typ");
+
         rcl=(RecyclerView)findViewById(R.id.rclview2);
-        databaseReference= FirebaseDatabase.getInstance().getReference().child("DoctorList").child("Cardiac");
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("DoctorList").child(type);
 
         getData(databaseReference,DoctListActivity.this);
     }
@@ -66,7 +70,7 @@ public class DoctListActivity extends AppCompatActivity {
                     String id=dsp.child("id").getValue(String.class);
                     contList.add(num);
                     emailList.add(mail);
-                    docListInfos.add(new DocListInfo(nam,num,desc,mail,R.drawable.an_profile,R.drawable.ic_baseline,R.drawable.ic_baseline_email_24));
+                    docListInfos.add(new DocListInfo(nam,num,desc,mail,R.drawable.an_profile,R.drawable.ic_baseline,R.drawable.ic_baseline_email_24,R.id.expandableView,R.id.motherCard));
                     //Toast.makeText(context,id,Toast.LENGTH_SHORT).show();
                 }
                 rcl.setHasFixedSize(true);
@@ -79,28 +83,41 @@ public class DoctListActivity extends AppCompatActivity {
                 docListAdapter.setItemClickListener(new DocListAdapter.OnItemClickListener() {
                     @Override
                     public void OnCallClick(int pos) {
-
+                        String num=contList.get(pos);
+                        Caller docCall=new Caller();
+                        docCall.calluser(num,DoctListActivity.this);
                     }
 
                     @Override
                     public void OnMailClick(int pos) {
-
+                        String email=emailList.get(pos);
+                        Intent intent=new Intent(DoctListActivity.this,EmailBodyActivity.class);
+                        intent.putExtra("mail",email);
+                        finish();
+                        startActivity(intent);
                     }
 
                     @Override
-                    public void OnArrowClick() {
+                    public void OnArrowClick(int pos) {
+                        int conID=docListInfos.get(pos).getExpandablecont();
+                        int cardID=docListInfos.get(pos).getCardview();
+
+                        cardView=findViewById(cardID);
+                        constraintLayout=findViewById(conID);
+
                         if(constraintLayout.getVisibility()==View.GONE)
                         {
                             TransitionManager.beginDelayedTransition(cardView,new AutoTransition());
                             constraintLayout.setVisibility(View.VISIBLE);
-
+                            docListAdapter.notifyDataSetChanged();
                         }
                         else
                         {
                             TransitionManager.beginDelayedTransition(cardView,new AutoTransition());
-                            constraintLayout.setVisibility(View.VISIBLE);
-
+                            constraintLayout.setVisibility(View.GONE);
+                            docListAdapter.notifyDataSetChanged();
                         }
+
                     }
                 });
             }

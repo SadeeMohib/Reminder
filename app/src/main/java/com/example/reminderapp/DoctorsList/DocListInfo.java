@@ -3,8 +3,10 @@ package com.example.reminderapp.DoctorsList;
 public class DocListInfo {
         String name,num,desc,mail;
         int proflImg,phnImg,mailImg;
+        int expandablecont;
+        int cardview;
 
-        public DocListInfo(String name,String num,String desc,String mail,int proflImg,int phnImg,int mailImg)
+        public DocListInfo(String name,String num,String desc,String mail,int proflImg,int phnImg,int mailImg,int expandablecont,int cardview)
         {
             this.name=name;
             this.num=num;
@@ -13,6 +15,8 @@ public class DocListInfo {
             this.proflImg=proflImg;
             this.phnImg=phnImg;
             this.mailImg=mailImg;
+            this.expandablecont=expandablecont;
+            this.cardview=cardview;
         }
 
         public String getName() {
@@ -41,5 +45,15 @@ public class DocListInfo {
 
         public int getMailImg() {
             return mailImg;
+        }
+
+        public int getExpandablecont()
+        {
+            return expandablecont;
+        }
+
+        public int getCardview()
+        {
+            return cardview;
         }
 }
