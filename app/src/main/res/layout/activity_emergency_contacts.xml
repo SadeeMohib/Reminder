@@ -27,13 +27,16 @@
         android:scrollbars="vertical"
         android:layout_below="@+id/ecl"/>
 
-    <Button
-        android:id="@+id/adder"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
         android:onClick="adder"
-        android:layout_alignBottom="@+id/rclview"
-        android:text="Add" />
+        android:src="@drawable/ic_add"
+        app:fabSize="normal" />
 
     <RelativeLayout
         android:layout_width="wrap_content"

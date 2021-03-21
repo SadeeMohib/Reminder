@@ -45,7 +45,7 @@ public class MedicineList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_medicinename);
+        setContentView(R.layout.activity_emergency_contacts);
 
         rcl=(RecyclerView)findViewById(R.id.rclview);
         fUser= FirebaseAuth.getInstance().getCurrentUser();

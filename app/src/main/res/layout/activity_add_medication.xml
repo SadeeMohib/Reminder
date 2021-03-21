@@ -16,7 +16,8 @@
         android:textColor="@color/white"
         android:textSize="30sp" />
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
+        android:id="@+id/medicineList"
         android:layout_below="@+id/head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

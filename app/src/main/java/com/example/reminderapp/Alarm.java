@@ -12,15 +12,17 @@ import android.widget.Button;
 
 import androidx.core.app.NotificationCompat;
 
+
 public class Alarm extends BroadcastReceiver {
 
     private static final String CHANNEL_ID = "Sample Channel";
 
+
     @Override
     public void onReceive(Context context, Intent intent) {
-       /** int notiId = intent.getIntExtra("notiId", 0);
+        int notiId = intent.getIntExtra("notiId", 0);
         String message = intent.getStringExtra("message");
-        Intent mainIntent = new Intent(context, MedicineReminder.class);
+        Intent mainIntent = new Intent(context, Medication.class);
         PendingIntent contentIntent = PendingIntent.getActivity(context, 0, mainIntent, 0);
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -36,8 +38,7 @@ public class Alarm extends BroadcastReceiver {
                 .setContentIntent(contentIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true);
-        notificationManager.notify(notiId, builder.build()); */
+        notificationManager.notify(notiId, builder.build());
 
     }
 }
-
