@@ -15,13 +15,6 @@
         android:text="Title"
         android:textSize="36dp" />
 
-    <TextView
-        android:layout_below="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Time"
-        android:textSize="15dp" />
-
     </RelativeLayout>
 
 </RelativeLayout>
