@@ -97,7 +97,7 @@
                     android:id="@+id/notes"
                     android:layout_width="140dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/medicine1"
+                    android:src="@drawable/phone"
                     android:onClick="MedList"
                     />
 
