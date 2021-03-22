@@ -66,7 +66,7 @@ public class Medication extends AppCompatActivity {
                     long alarmStartTime = calendar.getTimeInMillis();
                     alarmManager.set(AlarmManager.RTC_WAKEUP, alarmStartTime, alarmIntent);
                     String time = " - " + hour + " : " + min + " : " + "00";
-                    AddData(newEntry + time);
+                    AddData(newEntry);
                     //addTime(time);
                     medicineName.setText("");
                     Intent intent = new Intent(Medication.this, AddMedication.class);

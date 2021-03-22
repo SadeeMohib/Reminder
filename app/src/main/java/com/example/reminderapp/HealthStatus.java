@@ -258,16 +258,12 @@ public class HealthStatus extends AppCompatActivity {
     }
 
     public void popUp(View view) {
-
-
+        pop.setVisibility(View.VISIBLE);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                pop.setVisibility(View.VISIBLE);
-
+                pop.setVisibility(View.GONE);
             }
         },5000);
-
-
     }
 }
