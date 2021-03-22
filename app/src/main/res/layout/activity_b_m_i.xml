@@ -33,8 +33,9 @@
         <ImageView
             android:layout_width="49dp"
             android:layout_height="45dp"
-            android:layout_marginLeft="360dp"
+            android:layout_marginLeft="340dp"
             android:layout_marginTop="-50dp"
+            android:onClick="back"
             android:src="@drawable/ic_baseline_undo_24"
             android:layout_marginRight="10dp"/>
     </LinearLayout>
@@ -201,7 +202,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Catagory :"
+            android:text="Category :"
             android:textColor="#094ABA"
             android:textSize="24dp" />
         <TextView
