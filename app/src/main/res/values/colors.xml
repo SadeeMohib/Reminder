@@ -12,4 +12,8 @@
     <color name="yellow">#E2FFD500</color>
     <color name="blu">#3BB5DD</color>
     <color name="oreng">#FF9903</color>
+    <color name="chartgreen">#ADED9D</color>
+    <color name="chartblue">#AFCDE8</color>
+    <color name="chartyellow">#E4DB89</color>
+    <color name="chartred">#E19780</color>
 </resources>
