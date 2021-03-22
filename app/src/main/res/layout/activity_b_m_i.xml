@@ -156,7 +156,7 @@
         android:layout_height="208dp"
         android:src="@drawable/bmichart"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
