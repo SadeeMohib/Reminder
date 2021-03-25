@@ -116,9 +116,6 @@ public class BMI extends AppCompatActivity {
 
     public void back(View view) {
         finish();
-        Intent intent = new Intent(BMI.this, HealthStatus.class);
-        startActivity(intent);
+        startActivity(new Intent(BMI.this,HealthStatus.class));
     }
-
-
 }

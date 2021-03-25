@@ -1,4 +1,12 @@
 package com.example.reminderapp.AlarmWorks;
 
-public class BroadCaster {
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+
+public class BroadCaster extends BroadcastReceiver {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+
+    }
 }

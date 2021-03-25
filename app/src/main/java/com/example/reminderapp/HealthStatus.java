@@ -35,6 +35,10 @@ public class HealthStatus extends AppCompatActivity {
     ImageView back,pop,ques;
     String bloodP;
     Health health;
+    String sys1;
+    String dias1;
+    String pul;
+    String dia1;
 
     double bmival,bmrval,heightval,weightval,systol,diastol,puls,diab;
 
@@ -105,8 +109,10 @@ public class HealthStatus extends AppCompatActivity {
                 String bmi1=String.valueOf(bmival);
                 String bmr1=String.valueOf(bmrval);
                 String weight1=String.valueOf(weightval);
-                String dia1=String.valueOf(diab);
-
+                dia1=String.valueOf(diab);
+                sys1=String.valueOf(systol);
+                dias1=String.valueOf(diastol);
+                pul=String.valueOf(puls);
 
 
                 if(bmi1.equals("0.0") && bmr1.equals("0.0") && weight1.equals("0.0") && dia1.equals("0.0"))
@@ -217,8 +223,10 @@ public class HealthStatus extends AppCompatActivity {
 
     }
     public void goBP(View view) {
-        Intent intent=new Intent(HealthStatus.this,DoctListActivity.class);
-        intent.putExtra("typ","Cardiac");
+        Intent intent=new Intent(HealthStatus.this,BP.class);
+        intent.putExtra("sys",sys1);
+        intent.putExtra("dias",dias1);
+        intent.putExtra("Pulse",pul);
         finish();
         startActivity(intent);
 
@@ -242,8 +250,8 @@ public class HealthStatus extends AppCompatActivity {
 
     }
     public void goDiabates(View view) {
-        Intent intent=new Intent(HealthStatus.this,DoctListActivity.class);
-        intent.putExtra("typ","Diabetes");
+        Intent intent=new Intent(HealthStatus.this,Diabates.class);
+        intent.putExtra("dia",dia1);
         finish();
         startActivity(intent);
 

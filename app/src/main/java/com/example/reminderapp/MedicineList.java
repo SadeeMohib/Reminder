@@ -111,6 +111,7 @@ public class MedicineList extends AppCompatActivity {
                         String email=calleremail.get(pos);
                         Intent intent=new Intent(MedicineList.this,EmailBodyActivity.class);
                         intent.putExtra("mail",email);
+                        intent.putExtra("prev","2");
                         finish();
                         startActivity(intent);
                         //remove(itemInfos,pos,mAdapter);

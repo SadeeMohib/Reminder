@@ -43,7 +43,7 @@ public class AddMedication extends AppCompatActivity {
             //datum.put("Medicine Name", titleArray);
             //datum.put("Time", subItemArray);
             listData.add(data.getString(1));
-            //listData.add(timeData.getString(2));
+            //listData.add(data.getString(2));
         }
 
         ListAdapter adapter = new ArrayAdapter<>(this, R.layout.activity_remind_medicine_format, R.id.title, listData);

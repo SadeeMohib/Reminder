@@ -13,21 +13,39 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.reminderapp.AlarmWorks.AppoinDBHelper;
+import com.example.reminderapp.AlarmWorks.ManageAlarm;
+import com.example.reminderapp.AlarmWorks.ReadableTime;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Random;
 
 public class Appoinment extends AppCompatActivity {
 
     Button set1,set2,cancel1,cancel2;
-    TextView setTime,setDate;
+    TextView setTime,setDate,doctor,description;
+
+
+    AppoinDBHelper myDB;
 
     Calendar cal;
     int year1,month1,day;
     int hour,min,sec;
     long milisec;
+
     DateFormat dateFormat;
-    String time1;
+    String time1,readable,date;
+
+    ReadableTime readableTime=new ReadableTime();
+    ManageAlarm manageAlarm=new ManageAlarm();
+
+    Random rand=new Random();
+    int requestCode;
+    String Doctor,Description,stats;
+
+    boolean isInserted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +57,10 @@ public class Appoinment extends AppCompatActivity {
         cancel1=(Button)findViewById(R.id.cancelButton1);
         cancel2=(Button)findViewById(R.id.cancelButton2);
 
+        myDB=new AppoinDBHelper(Appoinment.this);
+
+        doctor=(TextView)findViewById(R.id.doctorName);
+        description=(TextView)findViewById(R.id.doctorDescription);
         setTime=(TextView)findViewById(R.id.time);
         setDate=(TextView)findViewById(R.id.date);
     }
@@ -63,8 +85,9 @@ public class Appoinment extends AppCompatActivity {
                 newTime.set(Calendar.MINUTE,minute);
                 newTime.set(Calendar.SECOND,0);
                 milisec=newTime.getTimeInMillis();
-                time1=hour+":"+min+":"+sec;
-                setTime.setText(time1);
+                readable=readableTime.convertTime(hour,min); //this will be added at COL_5
+                time1=hour+":"+min+":"+sec; //this will be added at COL_4
+                setTime.setText(readable);
             }
         },h,m,true);
         timePickerDialog.show();
@@ -78,6 +101,7 @@ public class Appoinment extends AppCompatActivity {
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 Calendar newDate=Calendar.getInstance();
                 newDate.set(year,month,dayOfMonth);
+                date=dateFormat.format(newDate.getTime()); //this will add at database COL_6
                 setDate.setText(dateFormat.format(newDate.getTime()));
                 day=dayOfMonth;
                 year1=year;
@@ -96,6 +120,25 @@ public class Appoinment extends AppCompatActivity {
     }
 
     public void setAppointment(View view) {
+
+
+        requestCode=rand.nextInt(100);              //this will be added at database COL_1
+        stats="Pending";                                   //this will be added at database COL_7
+        Doctor=doctor.getText().toString();                //this will be added at database COL_2
+        Description=description.getText().toString();      //this will be added at database COL_3
+
+        if(Doctor.isEmpty())
+        {
+            doctor.setError("Doctor field is empty.");
+            doctor.requestFocus();
+            return;
+        }
+
+        if(Description.isEmpty())
+        {
+            description.setText("");
+        }
+
         if(setTime.getText().toString().isEmpty())
         {
             Toast.makeText(this,"Time is empty!",Toast.LENGTH_LONG).show();
@@ -107,8 +150,21 @@ public class Appoinment extends AppCompatActivity {
             return;
         }
 
-        String settle="Time="+time1+" "+day+" "+year1+" "+month1;
-        Toast.makeText(this,settle,Toast.LENGTH_LONG).show();
+        String settle="Time="+time1+" "+day+" "+year1+" "+month1+" Date: "+date+" Readable: "+readable;
+        //Toast.makeText(this,settle,Toast.LENGTH_LONG).show();
+
+        isInserted=myDB.insertData(requestCode,Doctor,Description,time1,readable,date,stats);
+
+        if(isInserted==true)
+        {
+            Toast.makeText(this,"Added to database",Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(this,"Not added",Toast.LENGTH_LONG).show();
+        }
+
+        //manageAlarm.AppoinmentAlarm(requestCode,hour,min,year1,month1,day,Appoinment.this);
     }
 
 

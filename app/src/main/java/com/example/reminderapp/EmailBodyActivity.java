@@ -2,6 +2,7 @@ package com.example.reminderapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,8 @@ public class EmailBodyActivity extends AppCompatActivity {
     EditText reciver;
     EditText subj;
     EditText messagebody;
-
+    Class context;
+    String prev;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,14 +28,28 @@ public class EmailBodyActivity extends AppCompatActivity {
         messagebody=(EditText)findViewById(R.id.message);
 
         String re=intent.getStringExtra("mail");
+        prev=intent.getStringExtra("prev");
         reciver.setText(re);
     }
 
-
+    public void setContext(Class cnt)
+    {
+        context=cnt;
+    }
 
     public void back(View view) {
         finish();
-        startActivity(new Intent(EmailBodyActivity.this,MedicineList.class));
+
+        if(prev.equals("1"))
+        {
+            startActivity(new Intent(EmailBodyActivity.this, DashBoard.class));
+        }
+        else if(prev.equals("2"))
+        {
+            startActivity(new Intent(EmailBodyActivity.this, MedicineList.class));
+        }
+
+        //startActivity(new Intent(EmailBodyActivity.this, context.getClass()));
     }
 
     public void send(View view) {

@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.reminderapp.DoctorsList.DocListAdapter;
@@ -32,6 +34,7 @@ public class DoctListActivity extends AppCompatActivity {
     DocListAdapter docListAdapter;
     ConstraintLayout constraintLayout;
     CardView cardView;
+    ImageView arrbtn;
 
     ArrayList<DocListInfo> docListInfos=new ArrayList<>();
     ArrayList<String> emailList=new ArrayList<>();
@@ -70,7 +73,7 @@ public class DoctListActivity extends AppCompatActivity {
                     String id=dsp.child("id").getValue(String.class);
                     contList.add(num);
                     emailList.add(mail);
-                    docListInfos.add(new DocListInfo(nam,num,desc,mail,R.drawable.an_profile,R.drawable.ic_baseline,R.drawable.ic_baseline_email_24,R.id.expandableView,R.id.motherCard));
+                    docListInfos.add(new DocListInfo(nam,num,desc,mail,R.drawable.an_profile,R.drawable.ic_baseline,R.drawable.ic_baseline_email_24,R.id.expandableView,R.id.motherCard,R.drawable.ic_baseline_keyboard_arrow_down_24));
                     //Toast.makeText(context,id,Toast.LENGTH_SHORT).show();
                 }
                 rcl.setHasFixedSize(true);
@@ -93,6 +96,7 @@ public class DoctListActivity extends AppCompatActivity {
                         String email=emailList.get(pos);
                         Intent intent=new Intent(DoctListActivity.this,EmailBodyActivity.class);
                         intent.putExtra("mail",email);
+                        intent.putExtra("prev","1");
                         finish();
                         startActivity(intent);
                     }
@@ -101,9 +105,11 @@ public class DoctListActivity extends AppCompatActivity {
                     public void OnArrowClick(int pos) {
                         int conID=docListInfos.get(pos).getExpandablecont();
                         int cardID=docListInfos.get(pos).getCardview();
+                        int buttID=docListInfos.get(pos).getArrbutt();
 
                         cardView=findViewById(cardID);
                         constraintLayout=findViewById(conID);
+                        arrbtn=findViewById(buttID);
 
                         if(constraintLayout.getVisibility()==View.GONE)
                         {

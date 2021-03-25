@@ -35,7 +35,7 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListAdapter.DocHolde
 
     public static class DocHolder extends RecyclerView.ViewHolder{
         ImageView profImg,phnImg,MailImg;
-        Button ArrBtn;
+        ImageView ArrBtn;
         TextView name,desc,phnno,mailad;
         ConstraintLayout constraintLayout;
         CardView cardView;
@@ -50,11 +50,11 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListAdapter.DocHolde
             profImg=itemView.findViewById(R.id.circleImage);
             phnImg=itemView.findViewById(R.id.phoneIcon);
             MailImg=itemView.findViewById(R.id.mailIcon);
-
-
             ArrBtn=itemView.findViewById(R.id.arrowBtn);
+
             constraintLayout=itemView.findViewById(R.id.expandableView);
             cardView=itemView.findViewById(R.id.motherCard);
+
 
             ArrBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -124,6 +124,7 @@ public class DocListAdapter extends RecyclerView.Adapter<DocListAdapter.DocHolde
             holder.profImg.setImageResource(docListInfo.getProflImg());
             holder.constraintLayout.setId(docListInfo.getExpandablecont());
             holder.cardView.setId(docListInfo.getCardview());
+            holder.ArrBtn.setImageResource(docListInfo.getArrbutt());
 
             holder.name.setText(docListInfo.getName());
             holder.desc.setText(docListInfo.getDesc());

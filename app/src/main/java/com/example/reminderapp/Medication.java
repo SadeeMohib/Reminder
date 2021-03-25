@@ -22,6 +22,8 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.reminderapp.AlarmWorks.ReadableTime;
+
 import java.util.Calendar;
 import java.util.Random;
 public class Medication extends AppCompatActivity {
@@ -36,7 +38,7 @@ public class Medication extends AppCompatActivity {
     private NotificationManagerCompat notificationManager;
 
     Random rand = new Random();
-
+    ReadableTime readableTime=new ReadableTime();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,10 +67,11 @@ public class Medication extends AppCompatActivity {
                     calendar.set(Calendar.SECOND, 0);
                     long alarmStartTime = calendar.getTimeInMillis();
                     alarmManager.set(AlarmManager.RTC_WAKEUP, alarmStartTime, alarmIntent);
-                    String time = " - " + hour + " : " + min + " : " + "00";
+                    newEntry = newEntry+" "+readableTime.convertTime(hour,min);
                     AddData(newEntry);
                     //addTime(time);
                     medicineName.setText("");
+                    finish();
                     Intent intent = new Intent(Medication.this, AddMedication.class);
                     startActivity(intent);
                 } else
@@ -79,6 +82,7 @@ public class Medication extends AppCompatActivity {
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent intent = new Intent(Medication.this, AddMedication.class);
                 startActivity(intent);
             }

@@ -5,8 +5,9 @@ public class DocListInfo {
         int proflImg,phnImg,mailImg;
         int expandablecont;
         int cardview;
+        int arrbutt;
 
-        public DocListInfo(String name,String num,String desc,String mail,int proflImg,int phnImg,int mailImg,int expandablecont,int cardview)
+        public DocListInfo(String name,String num,String desc,String mail,int proflImg,int phnImg,int mailImg,int expandablecont,int cardview,int arrbutt)
         {
             this.name=name;
             this.num=num;
@@ -17,6 +18,7 @@ public class DocListInfo {
             this.mailImg=mailImg;
             this.expandablecont=expandablecont;
             this.cardview=cardview;
+            this.arrbutt=arrbutt;
         }
 
         public String getName() {
@@ -55,5 +57,10 @@ public class DocListInfo {
         public int getCardview()
         {
             return cardview;
+        }
+
+        public int getArrbutt()
+        {
+            return arrbutt;
         }
 }
