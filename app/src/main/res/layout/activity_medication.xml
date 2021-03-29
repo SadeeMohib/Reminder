@@ -52,6 +52,12 @@
             android:textColor="@color/black"
             android:textColorHint="#92000000"
             android:textSize="18sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set Medicine Time:"
+            android:textColor="#0123DF"
+            android:layout_marginTop="15dp"/>
 
         <TimePicker
             android:id="@+id/timePicker"
@@ -82,7 +88,59 @@
             android:onClick="back"
             android:layout_marginLeft="207dp"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Medicine Doze End Date"
+            android:textColor="#0123DF">
 
+        </TextView>
+
+        <EditText
+            android:id="@+id/endDate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="2dp"
+            android:hint=" day/month/year"
+            android:textColor="@color/black"
+            android:textColorHint="#92000000"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/setDateButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SET"
+            android:onClick="SetDate"
+            android:backgroundTint="#1C86EE"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="60dp"/>
+
+        <Button
+            android:id="@+id/canceDatelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-48dp"
+            android:text="CANCEL"
+            android:backgroundTint="#1C86EE"
+            android:onClick="back"
+            android:layout_marginLeft="207dp"/>
+
+        <Button
+            android:id="@+id/finalize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Done"
+            android:onClick="SetAll"
+            android:backgroundTint="#1C86EE"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:onClick="back"
+            android:backgroundTint="#1C86EE"/>
 
     </LinearLayout>
 

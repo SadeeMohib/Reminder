@@ -50,7 +50,9 @@
             </intent-filter>
         </activity>
         <receiver android:name=".Alarm"/>
-        <receiver android:name=".AlarmWorks.BroadCaster"/>
+        <receiver android:name=".AlarmWorks.BroadCaster">
+
+        </receiver>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

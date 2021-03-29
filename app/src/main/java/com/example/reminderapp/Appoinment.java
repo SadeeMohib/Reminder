@@ -89,7 +89,7 @@ public class Appoinment extends AppCompatActivity {
                 time1=hour+":"+min+":"+sec; //this will be added at COL_4
                 setTime.setText(readable);
             }
-        },h,m,true);
+        },h,m,false);
         timePickerDialog.show();
     }
 
@@ -164,7 +164,7 @@ public class Appoinment extends AppCompatActivity {
             Toast.makeText(this,"Not added",Toast.LENGTH_LONG).show();
         }
 
-        //manageAlarm.AppoinmentAlarm(requestCode,hour,min,year1,month1,day,Appoinment.this);
+        manageAlarm.AppoinmentAlarm(requestCode,hour,min,year1,month1,day,Appoinment.this);
     }
 
 
