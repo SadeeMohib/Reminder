@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -81,6 +80,6 @@ public class AddCallerActivity extends AppCompatActivity {
 
     public void back(View view) {
         finish();
-        startActivity(new Intent(AddCallerActivity.this,MedicineList.class));
+        startActivity(new Intent(AddCallerActivity.this, EmergencyContacts.class));
     }
 }

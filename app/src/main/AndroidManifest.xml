@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ReminderApp"
         tools:replace="android:icon">
-        <activity android:name=".DoctAddActivity"></activity>
+        <activity android:name=".DoctAddActivity"> </activity>
         <activity android:name=".DoctListActivity" />
         <activity android:name=".SmsbodyActivity" />
         <activity android:name=".EmailBodyActivity" />
@@ -37,8 +37,7 @@
         <activity android:name=".Appoinment" />
         <activity android:name=".AddMedication" />
         <activity android:name=".AddAppoinment" />
-        <activity android:name=".MedicineList" />
-        <activity android:name=".EditDataActivityMedicine" />
+        <activity android:name=".EmergencyContacts" />
         <activity
             android:name=".ui.login.DataBaseActivity"
             android:label="@string/title_activity_login" />
@@ -50,7 +49,10 @@
             </intent-filter>
         </activity>
         <receiver android:name=".Alarm"/>
-        <receiver android:name=".AlarmWorks.BroadCaster"/>
+        <receiver android:name=".AlarmWorks.BroadCaster">
+
+        </receiver>
+        <receiver android:name=".AlarmWorks.UpdateStats"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

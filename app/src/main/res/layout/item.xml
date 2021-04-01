@@ -7,18 +7,22 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="56dp"
         android:layout_margin="4dp"
-        android:background="@color/blu">
+        android:background="@drawable/contacts">
 
         <ImageView
+            android:layout_marginTop="2dp"
             android:id="@+id/img1"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/ic_android"
-            android:padding="2dp" />
+            android:backgroundTint="@color/black"
+            android:padding="2dp"
+            android:src="@drawable/contactface" />
 
         <TextView
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/name1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,6 +35,7 @@
 
         <TextView
             android:id="@+id/num1"
+            android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/name1"
@@ -46,8 +51,9 @@
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="252dp"
-            android:layout_marginEnd="-1dp"
+            android:layout_marginEnd="12dp"
             android:background="@drawable/ic_baseline_email_24"
+            android:backgroundTint="@color/black"
             android:padding="2dp" />
 
         <ImageView
@@ -55,8 +61,11 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignLeft="@+id/cal"
-            android:layout_marginLeft="-80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="-86dp"
+            android:layout_marginBottom="2dp"
             android:background="@drawable/ic_baseline_sms_24"
+            android:backgroundTint="@color/black"
             android:padding="2dp" />
 
     </RelativeLayout>

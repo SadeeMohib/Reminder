@@ -8,15 +8,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="4dp"
-        android:background="@color/blu">
+        android:background="@drawable/docname">
         <ImageView
             android:id="@+id/img1"
-            android:layout_width="60dp"
-            android:layout_height="90dp"
-            android:background="@drawable/ic_outline_medical_services_24"
-            android:padding="2dp" />
+            android:layout_width="70dp"
+            android:layout_height="105dp"
+            android:src="@drawable/docface" />
         <TextView
             android:id="@+id/docName"
+            android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/img1"
@@ -26,6 +26,7 @@
             android:layout_alignParentTop="true"/>
         <TextView
             android:id="@+id/desc"
+            android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/img1"
@@ -33,6 +34,7 @@
             android:text="Description"
             android:textColor="@color/black"/>
         <TextView
+            android:layout_marginLeft="1dp"
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,6 +43,7 @@
             android:textColor="@color/black"
             android:text="Time"/>
         <TextView
+            android:layout_marginLeft="5dp"
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,6 +52,7 @@
             android:text="Date"
             android:textColor="@color/black"/>
         <TextView
+            android:layout_marginLeft="5dp"
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

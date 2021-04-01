@@ -74,10 +74,10 @@
                   android:textSize="15dp"
                   android:textColor="@color/black" />
 
-              <androidx.cardview.widget.CardView
+              <ImageView
                   android:id="@+id/BloodPressure"
-                  android:layout_width="70dp"
-                  android:background="@drawable/ic_outline_medical_services_24"
+                  android:layout_width="50dp"
+                  android:background="@drawable/ic_baseline_arrow_forward_ios_24"
                   android:layout_height="match_parent" />
        </LinearLayout>
 
@@ -112,10 +112,10 @@
                   android:textSize="22dp"
                   android:textColor="@color/black"/>
 
-              <androidx.cardview.widget.CardView
+              <ImageView
                   android:id="@+id/BMIcard"
-                  android:background="@color/cardview_light_background"
-                  android:layout_width="70dp"
+                  android:layout_width="50dp"
+                  android:background="@drawable/ic_baseline_arrow_forward_ios_24"
                   android:layout_height="match_parent" />
        </LinearLayout>
 
@@ -126,8 +126,7 @@
            android:layout_marginLeft="15dp"
            android:layout_marginTop="275dp"
            android:layout_marginRight="15dp"
-           android:background="@color/cardview_light_background"
-           android:onClick="goBMR">
+           android:background="@color/cardview_light_background" >
 
               <TextView
                   android:layout_width="200dp"
@@ -142,18 +141,19 @@
 
               <TextView
                   android:id="@+id/bmr"
-                  android:layout_width="125dp"
+                  android:layout_width="124dp"
                   android:layout_height="match_parent"
                   android:gravity="center"
                   android:text="0"
-                  android:textSize="22dp"
-                  android:textColor="@color/black"/>
+                  android:textColor="@color/black"
+                  android:textSize="22dp" />
 
-              <androidx.cardview.widget.CardView
+              <ImageView
+                  android:layout_gravity="center"
                   android:id="@+id/Bmrcard"
-                  android:layout_width="70dp"
-                  android:background="@color/cardview_light_background"
-                  android:layout_height="match_parent" />
+                  android:layout_width="50dp"
+                  android:layout_height="50dp"
+                  android:background="@drawable/ic_baseline_cancel_24" />
        </LinearLayout>
 
 
@@ -164,8 +164,7 @@
            android:layout_marginLeft="15dp"
            android:layout_marginTop="350dp"
            android:layout_marginRight="15dp"
-           android:background="@color/cardview_light_background"
-           android:onClick="goWeight">
+           android:background="@color/cardview_light_background" >
 
               <TextView
                   android:layout_width="200dp"
@@ -187,11 +186,12 @@
                   android:textColor="@color/black"
                   android:textSize="24dp" />
 
-              <androidx.cardview.widget.CardView
+              <ImageView
+                  android:layout_gravity="center"
                   android:id="@+id/WeightCard"
-                  android:background="@color/cardview_light_background"
-                  android:layout_width="70dp"
-                  android:layout_height="match_parent" />
+                  android:layout_width="50dp"
+                  android:layout_height="match_parent"
+                  android:background="@drawable/ic_baseline_cancel_24" />
        </LinearLayout>
 
 
@@ -225,10 +225,10 @@
                   android:textSize="24dp"
                   android:textColor="@color/black"/>
 
-              <androidx.cardview.widget.CardView
+              <ImageView
                   android:id="@+id/DiabetesCard"
-                  android:background="@color/cardview_light_background"
-                  android:layout_width="70dp"
+                  android:layout_width="50dp"
+                  android:background="@drawable/ic_baseline_arrow_forward_ios_24"
                   android:layout_height="match_parent" />
        </LinearLayout>
 

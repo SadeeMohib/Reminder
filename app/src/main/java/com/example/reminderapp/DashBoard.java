@@ -57,7 +57,7 @@ public class DashBoard extends AppCompatActivity {
 
     public void MedList(View view) {
         finish();
-        startActivity(new Intent(DashBoard.this,MedicineList.class));
+        startActivity(new Intent(DashBoard.this, EmergencyContacts.class));
     }
 
     public void GoToStats(View view) {

@@ -53,5 +53,4 @@ dependencies {
     implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
-
 }

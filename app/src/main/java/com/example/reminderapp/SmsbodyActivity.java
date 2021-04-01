@@ -36,6 +36,6 @@ public class SmsbodyActivity extends AppCompatActivity {
 
     public void back(View view) {
         finish();
-        startActivity(new Intent(SmsbodyActivity.this,MedicineList.class));
+        startActivity(new Intent(SmsbodyActivity.this, EmergencyContacts.class));
     }
 }
