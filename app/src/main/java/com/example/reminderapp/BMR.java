@@ -63,7 +63,10 @@ public class BMR extends AppCompatActivity {
     }
 
     public void goDocList(View view) {
-
+        Intent intent=new Intent(BMR.this,DoctListActivity.class);
+        intent.putExtra("typ","Nutritionist");
+        finish();
+        startActivity(intent);
     }
 
     public void back(View view) {
