@@ -9,11 +9,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Build;
-import android.widget.Button;
 
 import androidx.core.app.NotificationCompat;
 
 import com.example.reminderapp.AlarmWorks.ManageAlarm;
+import com.example.reminderapp.AlarmWorks.MedicineDBHelper;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,16 +22,24 @@ import java.util.Calendar;
 
 public class Alarm extends BroadcastReceiver {
 
+
+    /*@Override
+    public void onReceive(Context context, Intent intent) {
+        Toast.makeText(context, "Image clicked", Toast.LENGTH_SHORT).show();
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
+        notificationManager.cancel(1);
+    }*/
+
     private static final String CHANNEL_ID = "Sample Channel";
 
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        int notiId = intent.getIntExtra("notiId", 0);
+        int notificationId = intent.getIntExtra("notificationId", 0);
         ManageAlarm manageAlarm=new ManageAlarm();
 
         DateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
-        DataBaseHelper data=new DataBaseHelper(context);
+        MedicineDBHelper data=new MedicineDBHelper(context);
 
         Cursor cursor;
         String ID=intent.getStringExtra("id");
@@ -58,7 +66,7 @@ public class Alarm extends BroadcastReceiver {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
 
-        if(cursor!=null && cursor.moveToFirst())
+        if(cursor != null && cursor.moveToFirst())
         {
             message=cursor.getString(medIndex);
             lastDay=cursor.getString(medLastday);
@@ -67,7 +75,7 @@ public class Alarm extends BroadcastReceiver {
 
         if(lastDay.equals(date))
         {
-            message=message+" doze days are ended";
+            message = message + "\n" + " doze days are ended";
             manageAlarm.cancelMedAlarm(Integer.parseInt(ID),context);
         }
 
@@ -88,7 +96,7 @@ public class Alarm extends BroadcastReceiver {
                 .setContentIntent(contentIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setAutoCancel(true);
-        notificationManager.notify(notiId, builder.build());
+        notificationManager.notify(notificationId, builder.build());
 
     }
 }

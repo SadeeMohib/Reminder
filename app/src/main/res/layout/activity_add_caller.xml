@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
     tools:context=".AddCallerActivity">
     <TextView
         android:layout_width="match_parent"
@@ -57,17 +56,22 @@
         android:textStyle="bold"/>
 
     <Button
+        android:layout_marginTop="23dp"
+        android:layout_gravity="center"
         android:id="@+id/add"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:onClick="add"
-        android:text="Add"
-        />
+        android:backgroundTint="#2F4F4F"
+        android:text="Add" />
     <Button
+        android:layout_marginTop="7dp"
+        android:layout_gravity="center"
         android:id="@+id/can"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="Cancel"
+        android:backgroundTint="#2F4F4F"
         android:onClick="back"
         />
 </LinearLayout>

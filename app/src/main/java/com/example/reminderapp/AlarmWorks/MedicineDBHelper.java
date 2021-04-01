@@ -1,4 +1,4 @@
-package com.example.reminderapp;
+package com.example.reminderapp.AlarmWorks;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,10 +7,11 @@ import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-public class DataBaseHelper extends SQLiteOpenHelper {
+public class MedicineDBHelper extends SQLiteOpenHelper {
 
     private static final String TAG = "DataBaseHelper";
 
@@ -23,7 +24,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
 
-    public DataBaseHelper(Context context) {
+    public MedicineDBHelper(Context context) {
         super(context, TABLE_NAME, null, 2);
     }
 
@@ -45,7 +46,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public boolean addData(String ID,String item,String progTime,String realTime,String endDate) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL1,ID);
+        contentValues.put(COL1, ID);
         contentValues.put(COL2, item);
         contentValues.put(COL3, progTime);
         contentValues.put(COL4, realTime);
@@ -55,53 +56,50 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
-        if(result == -1)
+        /*if(result == -1)
             return false;
-        else return true;
+        else return true;*/
+
+        return result != -1;
     }
 
-    public Cursor getData() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT * FROM " + TABLE_NAME;
-        Cursor data = db.rawQuery(query, null);
-        return data;
+    public Cursor getAllData()
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+        String query="SELECT * FROM "+TABLE_NAME;
+        Cursor data=null;
+        if(db!=null) {
+            data = db.rawQuery(query, null);
+        }
+        return  data;
     }
 
+    public void deleteData(int row_id,Context context)
+    {
+        String id=String.valueOf(row_id);
+        SQLiteDatabase database=this.getWritableDatabase();
+        long result=database.delete(TABLE_NAME,"ID=?",new String[]{id});
 
-    public Cursor getItemID(String name) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "SELECT " + COL1 + " FROM " + TABLE_NAME + " WHERE " + COL2 + " = '" + name + "'";
-        Cursor data = db.rawQuery(query, null);
-        return data;
-    }
-
-    public void updateName(String newName, int id, String oldName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "UPDATE " + TABLE_NAME + " SET " + COL2 + " = '" + newName
-                + "' WHERE " + COL1 + " = '" + id + "'" + " AND "
-                + COL2 + " = '" + oldName + "'";
-        Log.d(TAG, "updateName: query: " + query);
-        Log.d(TAG, "updateName: Setting name to " + newName);
-        db.execSQL(query);
-    }
-
-    public void deleteName(int id, String name) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL1 + " = '" + id + "'" +
-                " AND " + COL2 + " = '" + name + "'";
-        db.execSQL(query);
+        if(result==-1)
+        {
+            Toast.makeText(context,"Failed to delete",Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(context,"Deleted",Toast.LENGTH_LONG).show();
+        }
     }
 
     public Cursor getCurrentMed(String ID)
     {
 
         SQLiteDatabase db=this.getReadableDatabase();
-        String quary="SELECT * FROM "+TABLE_NAME+" WHERE "+COL1+"= ' "+ID+" ' ";
+        String query="SELECT * FROM "+TABLE_NAME+" WHERE "+COL1+"= ' "+ID+" ' ";
 
         Cursor data=null;
         if(db!=null)
         {
-            data=db.rawQuery(quary,null);
+            data=db.rawQuery(query,null);
             data.moveToFirst();
             db.close();
         }

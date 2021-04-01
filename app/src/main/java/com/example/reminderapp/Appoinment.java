@@ -164,7 +164,7 @@ public class Appoinment extends AppCompatActivity {
             Toast.makeText(this,"Not added",Toast.LENGTH_LONG).show();
         }
 
-        manageAlarm.AppoinmentAlarm(requestCode,hour,min,year1,month1,day,Appoinment.this);
+        manageAlarm.AppoinmentAlarm(requestCode,hour - 3,min,year1,month1,day,Appoinment.this);
     }
 
 

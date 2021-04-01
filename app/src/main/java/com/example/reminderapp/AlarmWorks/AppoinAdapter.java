@@ -42,8 +42,9 @@ public class AppoinAdapter extends RecyclerView.Adapter<AppoinAdapter.AppoinHold
     @Override
     public AppoinHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.appoinitem,parent,false);
-        AppoinHolder appoinHolder=new AppoinHolder(v);
-        return appoinHolder;
+//        AppoinHolder appoinHolder=new AppoinHolder(v);
+//        return appoinHolder;
+        return new AppoinHolder(v);
     }
 
     @Override

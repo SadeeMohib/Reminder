@@ -9,23 +9,15 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.reminderapp.AlarmWorks.ManageAlarm;
+import com.example.reminderapp.AlarmWorks.MedicineDBHelper;
 import com.example.reminderapp.AlarmWorks.ReadableTime;
 
 import java.text.DateFormat;
@@ -34,7 +26,7 @@ import java.util.Calendar;
 import java.util.Random;
 public class Medication extends AppCompatActivity {
 
-    DataBaseHelper mDatabaseHelper;
+    MedicineDBHelper mDatabaseHelper;
     private int notiId = 1;
     private Button setBtn, cancelBtn;
     private EditText medicineName;
@@ -69,7 +61,7 @@ public class Medication extends AppCompatActivity {
         timePicker = findViewById(R.id.timePicker);
         EndDate=findViewById(R.id.endDate);
 
-        mDatabaseHelper = new DataBaseHelper(this);
+        mDatabaseHelper = new MedicineDBHelper(this);
         notificationManager = NotificationManagerCompat.from(this);
 
         setBtn.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +89,7 @@ public class Medication extends AppCompatActivity {
                     readable=readableTime.convertTime(hour,min); //human readable time
 
                     //alarmManager.set(AlarmManager.RTC_WAKEUP, alarmStartTime, alarmIntent);
-                    newEntry = newEntry+" "+readableTime.convertTime(hour,min);
+                    //newEntry = newEntry+" "+readableTime.convertTime(hour,min);
                     //AddData(newEntry);
 
                     //addTime(time);

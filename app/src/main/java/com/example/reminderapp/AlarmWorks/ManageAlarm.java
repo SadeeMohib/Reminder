@@ -7,10 +7,8 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.example.reminderapp.Alarm;
-import com.example.reminderapp.Medication;
 
 import java.util.Calendar;
-import java.util.Random;
 
 public class ManageAlarm {
     int hour,min;

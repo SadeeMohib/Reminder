@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MedicineList"
+    tools:context=".EmergencyContacts"
     >
 
     <TextView
@@ -22,9 +22,9 @@
         android:id="@+id/rclview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
         android:padding="4dp"
         android:scrollbars="vertical"
+        android:background="@color/white"
         android:layout_below="@+id/ecl"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

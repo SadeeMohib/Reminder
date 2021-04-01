@@ -73,7 +73,7 @@ public class AddAppoinment extends AppCompatActivity {
                 readableTime=cursor.getString(4);
                 Date=cursor.getString(5);
                 status=cursor.getString(6);
-                appoinItemInfos.add(new AppoinItemInfo(docName,desc,readableTime,Date,status,id,R.drawable.ic_outline_medical_services_24));
+                appoinItemInfos.add(new AppoinItemInfo(docName,desc,readableTime,Date,status,id,R.drawable.docface));
             }
 
             rcl2.setHasFixedSize(true);

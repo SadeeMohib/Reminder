@@ -19,7 +19,7 @@ public class EmergencyCallShow extends AppCompatActivity {
     }
 
     public void Start(View view) {
-        Intent sb = new Intent(this,MedicineList.class);
+        Intent sb = new Intent(this, EmergencyContacts.class);
         finish();
         startActivity(sb);
 

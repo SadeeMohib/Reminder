@@ -30,7 +30,7 @@ public class HealthStatus extends AppCompatActivity {
     String uid;
     String age,gender;
 
-    CardView BloodPressure,BmiCard,BmrCard,WeightCard,DiabetesCard;
+    ImageView BloodPressure,BmiCard,BmrCard,WeightCard,DiabetesCard;
     TextView bmi,bmr,bloodPress,weight,diabetes;
     ImageView back,pop,ques;
     String bloodP;
@@ -53,11 +53,11 @@ public class HealthStatus extends AppCompatActivity {
 
         databaseReference= FirebaseDatabase.getInstance().getReference();
 
-        BloodPressure=(CardView) findViewById(R.id.BloodPressure);
-        BmiCard=(CardView) findViewById(R.id.BMIcard);
-        BmrCard=(CardView) findViewById(R.id.Bmrcard);
-        WeightCard=(CardView) findViewById(R.id.WeightCard);
-        DiabetesCard=(CardView) findViewById(R.id.DiabetesCard);
+        BloodPressure= findViewById(R.id.BloodPressure);
+        BmiCard= findViewById(R.id.BMIcard);
+        BmrCard= findViewById(R.id.Bmrcard);
+        WeightCard= findViewById(R.id.WeightCard);
+        DiabetesCard= findViewById(R.id.DiabetesCard);
 
 
 
@@ -237,18 +237,18 @@ public class HealthStatus extends AppCompatActivity {
         startActivity(intent);
 
     }
-    public void goBMR(View view) {
+    /*public void goBMR(View view) {
         Intent intent=new Intent(HealthStatus.this,BMR.class);
         finish();
         startActivity(intent);
 
-    }
-    public void goWeight(View view) {
+    }*/
+    /*public void goWeight(View view) {
         Intent intent=new Intent(HealthStatus.this,Weight.class);
         finish();
         startActivity(intent);
 
-    }
+    }*/
     public void goDiabates(View view) {
         Intent intent=new Intent(HealthStatus.this,Diabates.class);
         intent.putExtra("dia",dia1);

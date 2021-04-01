@@ -29,7 +29,7 @@ import java.util.ArrayList;
 
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
-public class MedicineList extends AppCompatActivity {
+public class EmergencyContacts extends AppCompatActivity {
 
     ArrayList<ItemInfo> itemInfos=new ArrayList<>();
     RecyclerView rcl;
@@ -52,7 +52,7 @@ public class MedicineList extends AppCompatActivity {
         uid=fUser.getUid();
         databaseReference= FirebaseDatabase.getInstance().getReference("Contacts/"+uid);
 
-        getData(databaseReference,MedicineList.this);
+        getData(databaseReference, EmergencyContacts.this);
     }
 
     ItemTouchHelper.SimpleCallback simpleCallback=new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
@@ -70,7 +70,7 @@ public class MedicineList extends AppCompatActivity {
         @Override
         public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
             new RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
-                    .addSwipeLeftBackgroundColor(ContextCompat.getColor(MedicineList.this,R.color.orenge_red))
+                    .addSwipeLeftBackgroundColor(ContextCompat.getColor(EmergencyContacts.this,R.color.orenge_red))
                     .addSwipeLeftActionIcon(R.drawable.ic_baseline_remove_circle_24)
                     .create()
                     .decorate();
@@ -89,7 +89,7 @@ public class MedicineList extends AppCompatActivity {
                     String num = dsp.child("num").getValue(String.class);
                     callerid.add(dsp.child("id").getValue(String.class));
                     calleremail.add(dsp.child("email").getValue(String.class));
-                    itemInfos.add(new ItemInfo(nam, num, R.drawable.ic_android,R.drawable.ic_baseline_email_24,R.drawable.ic_baseline_sms_24));
+                    itemInfos.add(new ItemInfo(nam, num, R.drawable.contactface,R.drawable.ic_baseline_email_24,R.drawable.ic_baseline_sms_24));
                 }
                 rcl.setHasFixedSize(true);
                 mlayoutManager=new LinearLayoutManager(cnt);
@@ -102,14 +102,14 @@ public class MedicineList extends AppCompatActivity {
                     public void OnItemClick(int pos) {
                         String getnum= itemInfos.get(pos).getNum();
                         Caller caller=new Caller();
-                        caller.calluser(getnum,MedicineList.this);
+                        caller.calluser(getnum, EmergencyContacts.this);
                         //Toast.makeText(MainActivity.this,getnum,Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void OnCallClick(int pos) {
                         String email=calleremail.get(pos);
-                        Intent intent=new Intent(MedicineList.this,EmailBodyActivity.class);
+                        Intent intent=new Intent(EmergencyContacts.this,EmailBodyActivity.class);
                         intent.putExtra("mail",email);
                         intent.putExtra("prev","2");
                         finish();
@@ -120,7 +120,7 @@ public class MedicineList extends AppCompatActivity {
                     @Override
                     public void OnSMSClick(int pos) {
                         String getnum= itemInfos.get(pos).getNum();
-                        Intent intent=new Intent(MedicineList.this,SmsbodyActivity.class);
+                        Intent intent=new Intent(EmergencyContacts.this,SmsbodyActivity.class);
                         intent.putExtra("Num",getnum);
                         finish();
                         startActivity(intent);
@@ -151,11 +151,11 @@ public class MedicineList extends AppCompatActivity {
 
     public void back(View view) {
         finish();
-        startActivity(new Intent(MedicineList.this,DashBoard.class));
+        startActivity(new Intent(EmergencyContacts.this,DashBoard.class));
     }
 
     public void adder(View view) {
         finish();
-        startActivity(new Intent(MedicineList.this,AddCallerActivity.class));
+        startActivity(new Intent(EmergencyContacts.this,AddCallerActivity.class));
     }
 }

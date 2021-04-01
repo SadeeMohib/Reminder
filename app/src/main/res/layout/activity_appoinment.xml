@@ -147,29 +147,24 @@
 
         <Button
             android:id="@+id/Done_button1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
             android:layout_marginTop="30dp"
-            android:padding="8dp"
             android:text="Done"
             android:backgroundTint="#1C86EE"
             android:onClick="setAppointment"
-            android:textSize="20dp" />
+            android:layout_marginLeft="60dp" />
 
         <Button
-            android:id="@+id/cance_button1"
-            android:layout_width="match_parent"
+            android:id="@+id/exit_button1"
+            android:layout_width="94dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="207dp"
             android:layout_marginRight="50dp"
-            android:layout_marginTop="30dp"
-            android:padding="8dp"
-            android:text="Cancel"
+            android:layout_marginTop="-48dp"
+            android:text="Exit"
             android:backgroundTint="#1C86EE"
-            android:onClick="back"
-            android:textSize="20dp" />
+            android:onClick="back" />
     </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
