@@ -237,18 +237,18 @@ public class HealthStatus extends AppCompatActivity {
         startActivity(intent);
 
     }
-    /*public void goBMR(View view) {
+    public void goBMR(View view) {
         Intent intent=new Intent(HealthStatus.this,BMR.class);
         finish();
         startActivity(intent);
 
-    }*/
-    /*public void goWeight(View view) {
+    }
+    public void goWeight(View view) {
         Intent intent=new Intent(HealthStatus.this,Weight.class);
         finish();
         startActivity(intent);
 
-    }*/
+    }
     public void goDiabates(View view) {
         Intent intent=new Intent(HealthStatus.this,Diabates.class);
         intent.putExtra("dia",dia1);

@@ -126,7 +126,8 @@
            android:layout_marginLeft="15dp"
            android:layout_marginTop="275dp"
            android:layout_marginRight="15dp"
-           android:background="@color/cardview_light_background" >
+           android:background="@color/cardview_light_background"
+           android:onClick="goBMR">
 
               <TextView
                   android:layout_width="200dp"
@@ -164,7 +165,8 @@
            android:layout_marginLeft="15dp"
            android:layout_marginTop="350dp"
            android:layout_marginRight="15dp"
-           android:background="@color/cardview_light_background" >
+           android:background="@color/cardview_light_background"
+           android:onClick="goWeight">
 
               <TextView
                   android:layout_width="200dp"

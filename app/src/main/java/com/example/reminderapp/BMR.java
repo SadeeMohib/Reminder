@@ -63,6 +63,7 @@ public class BMR extends AppCompatActivity {
     }
 
     public void goDocList(View view) {
+
     }
 
     public void back(View view) {
