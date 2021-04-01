@@ -52,6 +52,7 @@
         <receiver android:name=".AlarmWorks.BroadCaster">
 
         </receiver>
+        <receiver android:name=".AlarmWorks.UpdateStats"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

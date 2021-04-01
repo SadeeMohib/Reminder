@@ -102,4 +102,23 @@ public class AppoinDBHelper extends SQLiteOpenHelper {
         }
         return  data;
     }
+
+    public void UpdateStatus(int ID,String stat,Context context)
+    {
+        String id=String.valueOf(ID);
+        SQLiteDatabase database=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(COL_7,stat);
+        long res=database.update(TABLE_NAME,contentValues,"ID=?",new String[]{id});
+
+        if(res==-1)
+        {
+            Toast.makeText(context,"Not Checked",Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            Toast.makeText(context,"Checked",Toast.LENGTH_LONG).show();
+        }
+    }
+
 }

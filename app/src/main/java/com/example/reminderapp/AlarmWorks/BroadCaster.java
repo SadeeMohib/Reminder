@@ -3,6 +3,7 @@ package com.example.reminderapp.AlarmWorks;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +34,10 @@ public class BroadCaster extends BroadcastReceiver {
         Cursor cursor;
         int ID=intent.getExtras().getInt("reqCode");
 
+        Intent updateStat =new Intent(context,UpdateStats.class);
+        updateStat.putExtra("ID",ID);
+        PendingIntent statUpdate=PendingIntent.getBroadcast(context,ID,updateStat,PendingIntent.FLAG_UPDATE_CURRENT);
+
         Calendar calendar=Calendar.getInstance();
         int h=calendar.get(Calendar.HOUR_OF_DAY);
         int m=calendar.get(Calendar.MINUTE);
@@ -45,24 +50,26 @@ public class BroadCaster extends BroadcastReceiver {
         String date=dateFormat.format(calendar.getTime());
 
         String docName="";
-        String time=String.valueOf(h)+":"+String.valueOf(m)+"0";
+        String time="";
         cursor=myDB.getCurrentAppointment(ID);
         int docIndex=cursor.getColumnIndex("DocName");
+        int timeIndex=cursor.getColumnIndex("ReadableTime");
 
         NotificationManager notificationManager=(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
         if(cursor!=null && cursor.moveToFirst())
         {
             docName=cursor.getString(docIndex);
+            time=cursor.getString(timeIndex);
             cursor.close();
         }
 
-        String messege="You have an appointment with "+docName+" at "+date;
+        String messege="You have an appointment with "+docName+" today at "+time;
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             NotificationChannel notificationChannel=new NotificationChannel(channelID,channelName, NotificationManager.IMPORTANCE_DEFAULT);
             notificationChannel.enableLights(true);
             notificationChannel.enableVibration(true);
-            notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
             notificationManager.createNotificationChannel(notificationChannel);
         }
 
@@ -71,7 +78,9 @@ public class BroadCaster extends BroadcastReceiver {
                                                 .setContentTitle("Doctor Appointment")
                                                 .setContentText(messege)
                                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                                .setAutoCancel(true);
-        notificationManager.notify(2,builder.build());
+                                                .setAutoCancel(true)
+                                                .addAction(R.drawable.ic_baseline_medical_services_24,"Check",statUpdate);
+
+        notificationManager.notify(ID,builder.build());
     }
 }
