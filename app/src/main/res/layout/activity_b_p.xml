@@ -198,8 +198,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/chart"
-        android:layout_width="366dp"
-        android:layout_height="73dp"
+        android:layout_width="356dp"
+        android:layout_height="84dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="20dp"
 
@@ -211,9 +211,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.507">
+
         <TextView
             android:id="@+id/bloodPressur"
-            android:layout_width="356dp"
+            android:layout_width="275dp"
             android:layout_height="match_parent"
             android:background="@drawable/border"
             android:fontFamily="@font/adamina"
@@ -223,7 +224,7 @@
 
         <TextView
             android:id="@+id/condition"
-            android:layout_width="356dp"
+            android:layout_width="275dp"
             android:layout_height="match_parent"
             android:background="@drawable/border"
             android:fontFamily="@font/adamina"
@@ -232,9 +233,10 @@
             android:textSize="24dp"></TextView>
     </androidx.cardview.widget.CardView>
 
-    <ImageView
-        android:layout_width="516dp"
-        android:layout_height="258dp"
+    <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/catchart"
+        android:layout_width="443dp"
+        android:layout_height="198dp"
         android:layout_marginStart="-15dp"
         android:layout_marginTop="-5dp"
         android:layout_marginEnd="-15dp"
@@ -243,7 +245,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+    </com.github.chrisbanes.photoview.PhotoView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

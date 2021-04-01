@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class BMI extends AppCompatActivity {
     TextView cat,b_m_i,weight_,height_,age1;
     FirebaseUser user;
+    PhotoView photoview;
     DatabaseReference databaseReference;
     String uid,age2,gender;
     double bmival,heightval,weightval;
@@ -42,6 +44,10 @@ public class BMI extends AppCompatActivity {
         height_=(TextView)findViewById(R.id.height);
 
         getData(databaseReference,uid);
+
+        PhotoView photoView = (PhotoView) findViewById(R.id.catchart);
+        photoView.setImageResource(R.drawable.bmichartint);
+
     }
     private void getData(DatabaseReference dbf,String id) {
 

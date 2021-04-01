@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.github.chrisbanes.photoview.PhotoView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -20,6 +21,7 @@ public class BP extends AppCompatActivity {
     String uid;
     String systole,diastole,pulse;
     TextView syst,diast,Condition;
+    PhotoView photoview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,10 @@ public class BP extends AppCompatActivity {
 
         syst.setText(systole);
         diast.setText(diastole);
+
+
+        PhotoView photoView = (PhotoView) findViewById(R.id.catchart);
+        photoView.setImageResource(R.drawable.bpstageii);
 
         
 

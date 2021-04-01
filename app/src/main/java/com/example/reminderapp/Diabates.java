@@ -8,9 +8,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.github.chrisbanes.photoview.PhotoView;
+
 public class Diabates extends AppCompatActivity {
     TextView diabetesMete;
     ImageView indicator;
+    PhotoView photoview;
 
     String dia;
     double diam;
@@ -28,6 +31,9 @@ public class Diabates extends AppCompatActivity {
         diam=Double.parseDouble(dia);
 
         diabetesMete.setText(dia);
+
+        PhotoView photoView = (PhotoView) findViewById(R.id.imageView3);
+        photoView.setImageResource(R.drawable.diacon);
 
         if(diam<=4.0)
         {
