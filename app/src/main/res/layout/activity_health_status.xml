@@ -75,10 +75,14 @@
                   android:textColor="@color/black" />
 
               <ImageView
+                  android:backgroundTintMode="add"
+                  android:backgroundTint="#499DF5"
+                  android:layout_marginLeft="9dp"
+                  android:layout_gravity="center"
                   android:id="@+id/BloodPressure"
-                  android:layout_width="50dp"
+                  android:layout_width="wrap_content"
                   android:background="@drawable/ic_baseline_arrow_forward_ios_24"
-                  android:layout_height="match_parent" />
+                  android:layout_height="wrap_content" />
        </LinearLayout>
 
 
@@ -113,10 +117,14 @@
                   android:textColor="@color/black"/>
 
               <ImageView
+                  android:layout_gravity="center"
+                  android:backgroundTintMode="add"
+                  android:backgroundTint="#499DF5"
+                  android:layout_marginLeft="9dp"
                   android:id="@+id/BMIcard"
-                  android:layout_width="50dp"
+                  android:layout_width="wrap_content"
                   android:background="@drawable/ic_baseline_arrow_forward_ios_24"
-                  android:layout_height="match_parent" />
+                  android:layout_height="wrap_content" />
        </LinearLayout>
 
        <LinearLayout
@@ -150,11 +158,14 @@
                   android:textSize="22dp" />
 
               <ImageView
+                  android:backgroundTintMode="add"
+                  android:backgroundTint="#499DF5"
+                  android:layout_marginLeft="10dp"
                   android:layout_gravity="center"
                   android:id="@+id/Bmrcard"
-                  android:layout_width="50dp"
-                  android:layout_height="50dp"
-                  android:background="@drawable/ic_baseline_cancel_24" />
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/ic_baseline_arrow_forward_ios_24" />
        </LinearLayout>
 
 
@@ -190,10 +201,13 @@
 
               <ImageView
                   android:layout_gravity="center"
+                  android:backgroundTintMode="add"
+                  android:backgroundTint="#499DF5"
+                  android:layout_marginLeft="9dp"
                   android:id="@+id/WeightCard"
-                  android:layout_width="50dp"
-                  android:layout_height="match_parent"
-                  android:background="@drawable/ic_baseline_cancel_24" />
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:background="@drawable/ic_baseline_arrow_forward_ios_24" />
        </LinearLayout>
 
 
@@ -228,10 +242,14 @@
                   android:textColor="@color/black"/>
 
               <ImageView
+                  android:layout_gravity="center"
+                  android:backgroundTintMode="add"
+                  android:backgroundTint="#499DF5"
+                  android:layout_marginLeft="9dp"
                   android:id="@+id/DiabetesCard"
-                  android:layout_width="50dp"
+                  android:layout_width="wrap_content"
                   android:background="@drawable/ic_baseline_arrow_forward_ios_24"
-                  android:layout_height="match_parent" />
+                  android:layout_height="wrap_content" />
        </LinearLayout>
 
 

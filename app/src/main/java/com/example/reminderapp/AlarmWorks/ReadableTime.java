@@ -24,9 +24,9 @@ public class ReadableTime {
         if(hour>11)
         {
             am_pm="PM";
-
-            hour %= 12;
-            h=String.valueOf(hour);
+            if(hour % 12 != 0)
+                h=String.valueOf(hour % 12);
+            else h=String.valueOf(12);
         }
         else if(hour >= 0)
         {
