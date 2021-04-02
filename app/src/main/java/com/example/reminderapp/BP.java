@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.github.chrisbanes.photoview.PhotoView;
@@ -21,6 +22,7 @@ public class BP extends AppCompatActivity {
     String uid;
     String systole,diastole,pulse;
     TextView syst,diast,Condition;
+    ImageView highpress,lowpress,normpress;
     PhotoView photoview;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,20 @@ public class BP extends AppCompatActivity {
         diast=(TextView)findViewById(R.id.dias);
         Condition=(TextView)findViewById(R.id.condition);
 
+        highpress=(ImageView)findViewById(R.id.bphigh);
+        lowpress=(ImageView)findViewById(R.id.bpnill);
+        normpress=(ImageView)findViewById(R.id.bpnormal);
+
+
         Intent intent=getIntent();
         systole=intent.getStringExtra("sys");
         diastole=intent.getStringExtra("dias");
         pulse=intent.getStringExtra("Pulse");
+
+        double sys=Double.parseDouble(systole);
+        double dia=Double.parseDouble(diastole);
+
+        setCondition(sys, dia);
 
         user= FirebaseAuth.getInstance().getCurrentUser();
         uid=user.getUid();
@@ -50,6 +62,29 @@ public class BP extends AppCompatActivity {
 
         
 
+    }
+
+    private void setCondition(double sys,double dia) {
+        if(sys<120.0)
+        {
+            lowpress.setVisibility(View.VISIBLE);
+            Condition.setText("Low Blood Pressure");
+        }
+        else if(sys>=120.0 && sys<129.0)
+        {
+            normpress.setVisibility(View.VISIBLE);
+            Condition.setText("Normal Blood Pressure");
+        }
+        else if(sys>=130.0 && sys<139.0)
+        {
+            highpress.setVisibility(View.VISIBLE);
+            Condition.setText("High Blood Pressure");
+        }
+        else if(sys>=140.0)
+        {
+            highpress.setVisibility(View.VISIBLE);
+            Condition.setText("Very High Blood Pressure");
+        }
     }
 
     public void goDocList(View view) {

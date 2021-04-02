@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.github.chrisbanes.photoview.PhotoView;
 
 public class Diabates extends AppCompatActivity {
-    TextView diabetesMete;
+    TextView diabetesMete,condition;
     ImageView indicator;
     PhotoView photoview;
 
@@ -25,6 +25,7 @@ public class Diabates extends AppCompatActivity {
 
         diabetesMete=(TextView)findViewById(R.id.diabetes);
         indicator=(ImageView)findViewById(R.id.indicator);
+        condition=(TextView)findViewById(R.id.condi);
 
         Intent intent=getIntent();
         dia=intent.getStringExtra("dia");
@@ -38,14 +39,17 @@ public class Diabates extends AppCompatActivity {
         if(diam<=4.0)
         {
             indicator.setImageResource(R.drawable.btblue);
+            condition.setText("Low Sugar Level");
         }
         else if(diam>4.0 && diam<=6.0)
         {
             indicator.setImageResource(R.drawable.btgreen);
+            condition.setText("Normal Sugar Level");
         }
         else if(diam>6)
         {
             indicator.setImageResource(R.drawable.btred);
+            condition.setText("High Sugar Level");
         }
     }
 

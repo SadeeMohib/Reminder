@@ -77,7 +77,8 @@
                 android:background="@drawable/ic_baseline_keyboard_arrow_down_24"
                 app:layout_constraintBottom_toBottomOf="@+id/view"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/view" />
+                app:layout_constraintTop_toTopOf="@+id/view"
+                android:visibility="invisible"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/expandableView"
