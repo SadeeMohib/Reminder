@@ -69,5 +69,13 @@ public class DoctAddActivity extends AppCompatActivity {
             startActivity(new Intent(DoctAddActivity.this,DashBoard.class));
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DoctAddActivity.this,DashBoard.class);
+        startActivity(intent);
+
+        finish();
+    }
+
 
 }

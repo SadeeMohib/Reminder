@@ -76,4 +76,12 @@ public class BMR extends AppCompatActivity {
         finish();
         startActivity(new Intent(BMR.this,HealthStatus.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(BMR.this,HealthStatus.class);
+        startActivity(intent);
+
+        finish();
+    }
 }

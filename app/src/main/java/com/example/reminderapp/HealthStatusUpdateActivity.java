@@ -73,7 +73,15 @@ public class HealthStatusUpdateActivity extends AppCompatActivity {
 
     public void back(View view) {
         finish();
-        startActivity(new Intent(HealthStatusUpdateActivity.this,DashBoard.class));
+        startActivity(new Intent(HealthStatusUpdateActivity.this,HealthStatus.class));
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(HealthStatusUpdateActivity.this,HealthStatus.class);
+        startActivity(intent);
+
+        finish();
     }
 
     public void update(View view) {

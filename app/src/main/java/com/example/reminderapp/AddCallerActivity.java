@@ -82,4 +82,11 @@ public class AddCallerActivity extends AppCompatActivity {
         finish();
         startActivity(new Intent(AddCallerActivity.this, EmergencyContacts.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AddCallerActivity.this, EmergencyContacts.class);
+        startActivity(intent);
+        finish();
+    }
 }

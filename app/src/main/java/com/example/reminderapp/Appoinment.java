@@ -167,5 +167,11 @@ public class Appoinment extends AppCompatActivity {
         manageAlarm.AppoinmentAlarm(requestCode,hour - 3,min,year1,month1,day,Appoinment.this);
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Appoinment.this,AddAppoinment.class);
+        startActivity(intent);
+        finish();
+    }
 
 }

@@ -144,4 +144,12 @@ public class DoctListActivity extends AppCompatActivity {
         finish();
         startActivity(new Intent(DoctListActivity.this,HealthStatus.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DoctListActivity.this,HealthStatus.class);
+        startActivity(intent);
+
+        finish();
+    }
 }

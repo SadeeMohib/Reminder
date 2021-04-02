@@ -38,4 +38,12 @@ public class SmsbodyActivity extends AppCompatActivity {
         finish();
         startActivity(new Intent(SmsbodyActivity.this, EmergencyContacts.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(SmsbodyActivity.this, EmergencyContacts.class);
+        startActivity(intent);
+
+        finish();
+    }
 }

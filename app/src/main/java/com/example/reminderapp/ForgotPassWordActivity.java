@@ -73,4 +73,5 @@ public class ForgotPassWordActivity extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+
 }

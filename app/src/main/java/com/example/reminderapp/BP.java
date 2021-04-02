@@ -98,4 +98,12 @@ public class BP extends AppCompatActivity {
         finish();
         startActivity(new Intent(BP.this,HealthStatus.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(BP.this,HealthStatus.class);
+        startActivity(intent);
+
+        finish();
+    }
 }

@@ -135,4 +135,11 @@ public class AddAppoinment extends AppCompatActivity {
         finish();
         startActivity(new Intent(AddAppoinment.this,DashBoard.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AddAppoinment.this,DashBoard.class);
+        startActivity(intent);
+        finish();
+    }
 }

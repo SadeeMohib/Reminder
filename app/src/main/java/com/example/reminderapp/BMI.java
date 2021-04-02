@@ -124,4 +124,12 @@ public class BMI extends AppCompatActivity {
         finish();
         startActivity(new Intent(BMI.this,HealthStatus.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(BMI.this,HealthStatus.class);
+        startActivity(intent);
+
+        finish();
+    }
 }

@@ -68,6 +68,14 @@ public class UpdateAccActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(UpdateAccActivity.this,MyAccount.class);
+        startActivity(intent);
+
+        finish();
+    }
+
     public void Updater(View view) {
         String Email=email.getText().toString();
         String newpas=pass_new.getText().toString();

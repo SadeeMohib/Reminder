@@ -65,4 +65,12 @@ public class Diabates extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Diabates.this,HealthStatus.class);
+        startActivity(intent);
+
+        finish();
+    }
 }

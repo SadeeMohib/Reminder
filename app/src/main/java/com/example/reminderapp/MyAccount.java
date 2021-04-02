@@ -131,4 +131,12 @@ public class MyAccount extends AppCompatActivity {
         finish();
         startActivity(new Intent(MyAccount.this,DashBoard.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(MyAccount.this,DashBoard.class);
+        startActivity(intent);
+
+        finish();
+    }
 }

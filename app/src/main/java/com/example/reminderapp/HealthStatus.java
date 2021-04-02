@@ -265,6 +265,14 @@ public class HealthStatus extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(HealthStatus.this,DashBoard.class);
+        startActivity(intent);
+
+        finish();
+    }
+
     public void popUp(View view) {
         pop.setVisibility(View.VISIBLE);
         new Handler().postDelayed(new Runnable() {

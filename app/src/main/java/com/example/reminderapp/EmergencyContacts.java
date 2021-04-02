@@ -158,4 +158,12 @@ public class EmergencyContacts extends AppCompatActivity {
         finish();
         startActivity(new Intent(EmergencyContacts.this,AddCallerActivity.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(EmergencyContacts.this,DashBoard.class);
+        startActivity(intent);
+
+        finish();
+    }
 }

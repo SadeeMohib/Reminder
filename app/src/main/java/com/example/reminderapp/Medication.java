@@ -138,6 +138,14 @@ public class Medication extends AppCompatActivity {
         startActivity(new Intent(Medication.this,AddMedication.class));
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Medication.this,AddMedication.class);
+        startActivity(intent);
+
+        finish();
+    }
+
     public void SetDate(View view) {
         cal=Calendar.getInstance();
         dateFormat=new SimpleDateFormat("dd/MM/yyyy");

@@ -67,4 +67,12 @@ public class EmailBodyActivity extends AppCompatActivity {
 
         sendMail.Send(rec,sub,mes,EmailBodyActivity.this);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(EmailBodyActivity.this, EmergencyContacts.class);
+        startActivity(intent);
+
+        finish();
+    }
 }

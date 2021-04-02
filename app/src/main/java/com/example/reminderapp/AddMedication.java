@@ -193,4 +193,11 @@ public class AddMedication extends AppCompatActivity {
         finish();
         startActivity(new Intent(AddMedication.this,DashBoard.class));
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AddMedication.this,DashBoard.class);
+        startActivity(intent);
+        finish();
+    }
 }

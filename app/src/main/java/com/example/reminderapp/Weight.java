@@ -119,4 +119,12 @@ public class Weight extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(Weight.this,HealthStatus.class);
+        startActivity(intent);
+
+        finish();
+    }
 }

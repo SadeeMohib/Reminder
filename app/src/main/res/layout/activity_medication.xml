@@ -59,15 +59,14 @@
             android:textColor="#0123DF"
             android:layout_marginTop="15dp"/>
 
+
         <TimePicker
+            android:layout_gravity="center"
             android:id="@+id/timePicker"
-            android:layout_width="wrap_content"
+            android:layout_width="241dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:timePickerMode="spinner"/>
-
+            android:timePickerMode="spinner" />
 
         <Button
             android:id="@+id/setButton"
