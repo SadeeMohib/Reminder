@@ -11,6 +11,14 @@
         android:layout_margin="4dp"
         android:background="@drawable/contacts">
 
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Tap to call" />
+
         <ImageView
             android:layout_marginTop="2dp"
             android:id="@+id/img1"
